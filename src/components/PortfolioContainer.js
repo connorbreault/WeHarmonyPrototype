@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import NavTabs from "./NavTabs";
 import Home from "./pages/Home";
-import Profile from "./pages/About";
-import Blog from "./pages/Profile";
+import Profile from "./pages/Profile";
 import Contact from "./pages/Contact";
 
 class PortfolioContainer extends Component {
