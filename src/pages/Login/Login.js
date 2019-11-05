@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css"
-import { Input, FormBtn } from "../../components/Form";
+import { Input } from "../../components/Form";
 import { Link } from "react-router-dom";
 
 
@@ -17,9 +17,12 @@ class Login extends Component {
     });
   };
   handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.username && this.state.password) {
+    // event.preventDefault();
+    if (this.state.username.length > 0 && this.state.password > 0) {
       console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
+    } else {
+      // event.preventDefault()
+      alert("Fill out the form please")
     }
   };
 
@@ -34,19 +37,20 @@ class Login extends Component {
               value={this.state.username}
               onChange={this.handleInputChange}
               name="username"
-              placeholder="username (required)"
+              placeholder="username"
             />
             <Input
               value={this.state.password}
               onChange={this.handleInputChange}
               name="password"
-              placeholder="password (required)"
+              placeholder="password"
             />
-            <FormBtn
-              onClick={this.handleFormSubmit}>
+            <Link to="/Signup"><button className="btn" id="Signup">Sign up</button></Link>
+            <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Login">Login</button></Link>
+            {/* <FormBtn
+              onClick={this.handleFormSubmit} id="Login">
               Login
-            </FormBtn>
-            <Link to="/Signup"><button className="btn" style={{ float: "left", marginBottom: 10 }}>Sign up</button></Link>
+            </FormBtn> */}
           </div>
         </div>
       </div>

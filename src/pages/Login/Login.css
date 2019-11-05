@@ -2,22 +2,57 @@ body{
     background-image: url('../../images/LoginPic.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height:100%;
-    width:100%;
+    background-position: center;
     overflow:hidden;
 }
 .container{
     text-align: center
 }
 .logo{
-
+    font-family: 'Satisfy', cursive;
+    font-size: 65px;
+    color: #f5eed1;
+    text-decoration: underline;
+    text-decoration-color: #de965c;
+    text-decoration-style: dotted;
+    margin: 50px auto auto auto;
 }
 .loginbox{
-    margin: 80% auto auto auto;
+    margin: 45% auto auto auto;
+}
+.logintext{
+    font-family: 'Courgette', cursive;
+    font-size: 50px;
+    color: #8b4e3a;
+    text-decoration: underline;
+    text-decoration-color: #de965c;
+    text-decoration-style: dotted;
 }
 .form-control{
-    text-align: center
+    text-align: center;
+    background: #de965c;
+    border: transparent;
+    color: white;
+    opacity: 80%;
+}
+.btn{
+    font-family: 'Courgette', cursive;
+    margin: auto 10px;
+    font-size: 25px;
+}
+#Login{
+    background: #efb174
+}
+#Signup{
+    background: #8b4e3a
 }
 .logintext{}
-@media screen and ( max-width: 800px ) {
+@media screen and ( min-width: 800px ) {
+    .loginbox{
+        margin: auto;
+    }
+    .form-control{
+        width: 50%;
+        margin: auto
+    }
 }
