@@ -5,12 +5,18 @@ import Profile from "../pages/Profile/Profile";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
+import Navbar from "./Navbar/Navbar";
+import M from 'materialize-css';
 
 class Container extends Component {
+  componentDidMount() {
+    M.Sidenav.init(this.sidenav);
+  }
   render() {
     // if (this.state.currentPage === "Login" || this.state.currentPage === "Signup") {
     return (
       <Router>
+        <Navbar />
         <div>
           <Switch>
             <Route exact path="/" component={Login} />

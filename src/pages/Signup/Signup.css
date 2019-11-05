@@ -1,0 +1,19 @@
+.signuptext {
+    margin: 5% auto 5% -35%;
+    color: white;
+    font-family: 'Courgette', cursive;
+}
+.signupbox {
+    background: #ce7f47;
+    padding: 15px;
+    border-radius: 25px;
+    margin: 15px 10px;
+}
+.form-control{
+    text-align: center;
+    border: transparent;
+    color: white !important;
+    font-size: 20px !important;
+    opacity: 80%;
+    width: 85% !important
+}

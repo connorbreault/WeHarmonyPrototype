@@ -1,43 +1,55 @@
-body{
+/* body{
     background-image: url('../../images/LoginPic.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     overflow:hidden;
+} */
+.loginbackground{
+    background: url("../../images/LoginBG.jpg") no-repeat; 
+   background-size: cover;
+   min-width: 100%;
+   background-position-x: -150px;
+   height: 100vh
 }
 .container{
     text-align: center
 }
 .logo{
     font-family: 'Satisfy', cursive;
-    font-size: 65px;
+    font-size: 55px;
     color: #f5eed1;
     text-decoration: underline;
     text-decoration-color: #de965c;
     text-decoration-style: dotted;
-    margin: 50px auto auto auto;
+    margin: 0% auto auto auto;
+    padding: 20px;
 }
 .loginbox{
-    margin: 45% auto auto auto;
+    margin: 60% auto auto auto;
 }
 .logintext{
     font-family: 'Courgette', cursive;
     font-size: 50px;
-    color: #8b4e3a;
+    color: white;
+    opacity: 0.85;
     text-decoration: underline;
     text-decoration-color: #de965c;
     text-decoration-style: dotted;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 .form-control{
     text-align: center;
     background: #de965c;
     border: transparent;
-    color: white;
+    color: white !important;
+    font-size: 20px !important;
     opacity: 80%;
 }
 .btn{
     font-family: 'Courgette', cursive;
-    margin: auto 10px;
+    margin: auto 5%;
     font-size: 25px;
 }
 #Login{
@@ -48,8 +60,17 @@ body{
 }
 .logintext{}
 @media screen and ( min-width: 800px ) {
+    .loginbackground {
+        background-position-x: center
+    }
+    .logo {
+        margin: 0% auto auto auto;
+    }
     .loginbox{
         margin: auto;
+    }
+    .loginbox{
+        margin: 35% auto auto auto;
     }
     .form-control{
         width: 50%;

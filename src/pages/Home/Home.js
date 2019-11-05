@@ -22,7 +22,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="background" >
+      <div className="homebackground" >
         <div className="container">
           <h1 className="logo">Welcome</h1>
           <div className="searchbox">

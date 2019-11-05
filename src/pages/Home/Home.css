@@ -1,13 +1,11 @@
-body{
-    background-image: url('../../images/HomePic.jpeg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+.homebackground{
+    background: url("../../images/HomeBG.jpg") no-repeat; 
     background-size: cover;
-    background-position: center;
-    overflow:auto;
+    min-width: 100%;
+    min-height: 100%;
+    height: 100vh
 }
 .searchbox{
-    background: #c47a49;
     padding: 10px;
     border-radius: 25px;
 }

@@ -1,0 +1,13 @@
+.profilebackground{
+    background: url("../../images/ProfileBG.jpeg") no-repeat; 
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+    height: 100vh
+}
+.Profilename{
+    margin: 0px auto;
+    padding: 25px;
+    color: white;
+    font-family: 'Courgette', cursive;
+}

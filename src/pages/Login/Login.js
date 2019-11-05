@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./Login.css"
 import { Input } from "../../components/Form";
 import { Link } from "react-router-dom";
+import "./Login.css"
 
 
 class Login extends Component {
@@ -22,13 +22,13 @@ class Login extends Component {
       console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
     } else {
       // event.preventDefault()
-      alert("Fill out the form please")
+      // alert("Fill out the form please")
     }
   };
 
   render() {
     return (
-      <div className="background" >
+      <div className="loginbackground" >
         <div className="container">
           <h1 className="logo">WeHarmony</h1>
           <div className="loginbox">

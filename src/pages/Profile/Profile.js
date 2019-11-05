@@ -1,24 +1,44 @@
-import React from "react";
+import React, { Component } from "react";
+import { Input } from "../../components/Form";
+import { Link } from "react-router-dom";
 import "./Profile.css"
 
-function Profile() {
-  return (
-    <div>
-      <h1>Profile Page</h1>
-      <p>
-        Donec a volutpat quam. Curabitur nec varius justo, sed rutrum ligula. Curabitur pellentesque
-        turpis sit amet eros iaculis, a mollis arcu dictum. Ut vel ante eget massa ornare placerat.
-        Etiam nisl orci, finibus sodales volutpat et, hendrerit ut dolor. Suspendisse porta dictum
-        nunc, sed pretium risus rutrum eget. Nam consequat, ligula in faucibus vestibulum, nisi
-        justo laoreet risus, luctus luctus mi lacus sit amet libero. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Mauris pretium condimentum
-        tellus eget lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec
-        placerat accumsan mi, ut congue neque placerat eu. Donec nec ipsum in velit pellentesque
-        vehicula sit amet at augue. Maecenas aliquam bibendum congue. Pellentesque semper, lectus
-        non ullamcorper iaculis, est ligula suscipit velit, sed bibendum turpis dui in sapien.
-      </p>
-    </div>
-  );
-}
+class Profile extends Component {
+  state = {
+    username: "",
+    password: ""
+  };
 
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  handleFormSubmit = event => {
+    // event.preventDefault();
+    if (this.state.username.length > 0 && this.state.password > 0) {
+      console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
+    } else {
+      // event.preventDefault()
+      // alert("Fill out the form please")
+    }
+  };
+
+  render() {
+    return (
+      <div className="profilebackground" >
+        <div className="Picandname container">
+          <div className="row"></div>
+          <div className="col-6">
+            <img className="Profilepic" src="../../images/placeholder.png"></img>
+          </div>
+          <div className="col-6">
+            <p className="Profilename">(props.name)'s Profile</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 export default Profile;
