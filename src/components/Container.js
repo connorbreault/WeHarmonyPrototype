@@ -1,18 +1,26 @@
 import React, { Component } from "react";
-import NavTabs from "./NavTabs";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Contact from "./pages/Contact";
+import Navbar from "./Navbar";
+import Home from "./pages/Home/Home";
+import Profile from "./pages/Profile/Profile";
+import Contact from "./pages/Contact/Contact";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 
-class PortfolioContainer extends Component {
+class Container extends Component {
   state = {
-    currentPage: "Home"
+    currentPage: "Login"
   };
 
   handlePageChange = page => {
     this.setState({ currentPage: page });
   };
   renderPage = () => {
+    if (this.state.currentPage === "Login") {
+      return <Login />
+    }
+    if (this.state.currentPage === "Signup") {
+      return <Signup />
+    }
     if (this.state.currentPage === "Home") {
       return <Home />
     }
@@ -27,7 +35,7 @@ class PortfolioContainer extends Component {
   render() {
     return (
       <div>
-        <NavTabs
+        <Navbar
           currentPage={this.state.currentPage}
           handlePageChange={this.handlePageChange}
         />
@@ -37,4 +45,4 @@ class PortfolioContainer extends Component {
   }
 }
 
-export default PortfolioContainer;
+export default Container;
