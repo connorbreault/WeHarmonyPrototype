@@ -3,9 +3,45 @@
     background-size: cover;
     min-width: 100%;
     min-height: 100%;
-    height: 100vh
+    height: 100vh;
+    background-position: center
+}
+.homelogo{
+    font-family: 'Satisfy', cursive;
+    font-size: 55px;
+    color: #aeadad;
+    text-decoration: underline;
+    text-decoration-color: #a4b083;
+    text-decoration-style: dotted;
+    margin: 0% auto auto auto;
+    padding: 20px;
+}
+.instructions{
+    background: gray;
+    opacity: 0.8;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+.searchtext{
+    color: white;
+    font-family: 'Courgette', cursive;
+    font-size: 40px;
 }
 .searchbox{
     padding: 10px;
     border-radius: 25px;
+}
+.searchinputs{
+    margin: 50px auto auto auto;
+}
+#Search{
+    background: #6d6d6d;
+    font-family: 'Patrick Hand', cursive;
+}
+
+@media screen and ( min-width: 800px ) {
+    .instructions{
+    width: 60%;
+    margin: auto;
+    }
 }

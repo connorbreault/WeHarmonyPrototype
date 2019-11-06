@@ -18,12 +18,7 @@ class Login extends Component {
   };
   handleFormSubmit = event => {
     // event.preventDefault();
-    if (this.state.username.length > 0 && this.state.password > 0) {
-      console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
-    } else {
-      // event.preventDefault()
-      // alert("Fill out the form please")
-    }
+    alert(`Username: ${this.state.username} --- Password: ${this.state.password}`)
   };
 
   render() {

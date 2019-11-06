@@ -7,8 +7,8 @@ class Navbar extends React.Component {
     render() {
         return (
             <header>
-                <nav className="nav-wrapper" >
-                    <div className="container" id="mainNavbar">
+                <nav id="mainNavbar" className="nav-wrapper grey darken-2" >
+                    <div className="container">
                         <a href="/" className="brand-logo center">WeHarmony</a>
                         <a href="/" className="sidenav-trigger" data-target="mobile-links">
                             <i className="material-icons">menu</i>

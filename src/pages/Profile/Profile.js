@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Input } from "../../components/Form";
-import { Link } from "react-router-dom";
 import "./Profile.css"
 
 class Profile extends Component {
@@ -31,7 +29,7 @@ class Profile extends Component {
         <div className="Picandname container">
           <div className="row"></div>
           <div className="col-6">
-            <img className="Profilepic" src="../../images/placeholder.png"></img>
+            <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
           </div>
           <div className="col-6">
             <p className="Profilename">(props.name)'s Profile</p>

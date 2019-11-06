@@ -3,11 +3,13 @@ import "./Home.css"
 import { Input, FormBtn } from "../../components/Form";
 // import { Link } from "react-router-dom";
 
-
 class Login extends Component {
+
   state = {
-    instrument: "",
-    genre: ""
+    Instruments: ["Singer", "Guitar", "Bass", "Drums", "Piano"],
+    Genres: ["Rock", "Indie", "Metal", "Jazz", "Alternative"],
+    selectedInstrument: "",
+    selectedGenre: ""
   };
 
   handleInputChange = event => {
@@ -24,26 +26,31 @@ class Login extends Component {
     return (
       <div className="homebackground" >
         <div className="container">
-          <h1 className="logo">Welcome</h1>
+          <h1 className="homelogo">Welcome</h1>
           <div className="searchbox">
-            <h2 className="searchtext">What kind of musician are you looking for?</h2>
-            <Input
-              value={this.state.instrument}
-              onChange={this.handleInputChange}
-              name="instrument"
-              placeholder="instrument"
-            />
-            <Input
-              value={this.state.genre}
-              onChange={this.handleInputChange}
-              name="genre"
-              placeholder="genre"
-            />
-            <FormBtn
-              onClick={this.handleFormSubmit} id="Search">
-              Search
+            <div className="instructions">
+              <h2 className="searchtext">What kind of musician are you looking for?</h2>
+            </div>
+            <div className="searchinputs">
+              <Input
+                value={this.state.genre}
+                onChange={this.handleInputChange}
+                name="genre"
+                placeholder="Select genre"
+              />
+              <Input
+                value={this.state.genre}
+                onChange={this.handleInputChange}
+                name="genre"
+                placeholder="Select genre"
+              />
+              <FormBtn
+                onClick={this.handleFormSubmit} id="Search">
+                Search
             </FormBtn>
+            </div>
           </div>
+
         </div>
       </div>
     );

@@ -1,5 +1,3 @@
-#mainNavbar {
-    background: #d48a58 !important;
-    width: 80%;
-    margin: auto;
+#mainNavbar{
+    opacity: 0.9 !important
 }

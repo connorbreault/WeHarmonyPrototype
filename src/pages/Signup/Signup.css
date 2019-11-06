@@ -1,10 +1,20 @@
+.signupbackground{
+    background: url("../../images/SignupBG.png") no-repeat; 
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+    height: 100vh;
+    background-position: center
+}
 .signuptext {
-    margin: 5% auto 5% -35%;
+    margin: 0% auto 5% -25%;
+    padding: 25px;
     color: white;
     font-family: 'Courgette', cursive;
 }
 .signupbox {
-    background: #ce7f47;
+    background: #43b2f8;
+    opacity: 0.95;
     padding: 15px;
     border-radius: 25px;
     margin: 15px 10px;

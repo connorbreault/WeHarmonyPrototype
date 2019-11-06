@@ -1,8 +1,8 @@
 import React from "react";
 import "./Signup.css";
 import { Input } from "../../components/Form";
-import InstrumentForm from "../../components/instrument";
-import GenreForm from "../../components/genre";
+import InstrumentForm from "../../components/Form/instrument";
+import GenreForm from "../../components/Form/genre";
 import { Link } from "react-router-dom";
 
 class Signup extends React.Component {
@@ -33,7 +33,7 @@ class Signup extends React.Component {
 
     render() {
         return (
-            <div className="background" >
+            <div className="signupbackground" >
                 <div className="container">
                     <h1 className="signuptext">Sign up</h1>
                     <div className="signupbox">
