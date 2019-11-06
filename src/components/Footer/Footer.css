@@ -1,6 +1,7 @@
 #footerRow{
     text-align: center;
-    margin: auto;
+    margin: -40px auto auto auto;
+    font-family: 'Patrick Hand', cursive;
 }
 .footerItems{
     text-align: center !important
