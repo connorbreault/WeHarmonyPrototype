@@ -6,6 +6,7 @@ import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
 import M from 'materialize-css';
 
 class Container extends Component {
@@ -26,6 +27,7 @@ class Container extends Component {
             <Route exact path="/Contact" component={Contact} />
           </Switch>
         </div>
+        <Footer />
       </Router >
     );
   }

@@ -88,7 +88,7 @@ class Signup extends React.Component {
                             name="genres"
                         />
                         {/* <Dropdown /> */}
-                        <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Login">Sign up</button></Link>
+                        <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Signup">Sign up</button></Link>
                         {/* <FormBtn
                         onClick={this.handleFormSubmit} id="Login">
                         Login

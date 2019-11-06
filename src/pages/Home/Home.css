@@ -42,6 +42,9 @@
 @media screen and ( min-width: 800px ) {
     .instructions{
     width: 60%;
-    margin: auto;
+    margin: 50px auto;
+    }
+    .searchinputs{
+        margin: 250px auto auto auto;
     }
 }

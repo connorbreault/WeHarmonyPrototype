@@ -19,7 +19,7 @@ class Login extends Component {
     });
   };
   handleFormSubmit = event => {
-    alert(`Instrument: ${this.state.instrument} ---  Genre:${this.state.genre}`)
+    alert(`Instrument: ${this.state.selectedInstrument} ---  Genre:${this.state.selectedGenre}`)
   };
 
   render() {
@@ -33,15 +33,15 @@ class Login extends Component {
             </div>
             <div className="searchinputs">
               <Input
-                value={this.state.genre}
+                value={this.state.selectedInstrument}
                 onChange={this.handleInputChange}
-                name="genre"
-                placeholder="Select genre"
+                name="selectedInstrument"
+                placeholder="Select instrument"
               />
               <Input
-                value={this.state.genre}
+                value={this.state.selectedGenre}
                 onChange={this.handleInputChange}
-                name="genre"
+                name="selectedGenre"
                 placeholder="Select genre"
               />
               <FormBtn

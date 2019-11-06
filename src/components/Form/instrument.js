@@ -4,7 +4,7 @@ class InstrumentForm extends React.Component {
         return (
             <div className="input-field col s12">
                 <select multiple>
-                    <option value="" disabled selected>Select your instrument</option>
+                    <option value="" disabled defaultValue>Select your instrument</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
