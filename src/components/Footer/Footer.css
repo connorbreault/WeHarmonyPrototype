@@ -1,8 +1,13 @@
 #footerRow{
     text-align: center;
-    margin: -40px auto auto auto;
+    margin: -44px auto auto auto;
     font-family: 'Patrick Hand', cursive;
 }
 .footerItems{
     text-align: center !important
+}
+@media screen and ( min-width: 800px ) {
+    #footerRow{
+        width: 55%
+    }
 }
