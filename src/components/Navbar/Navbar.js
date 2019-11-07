@@ -1,6 +1,6 @@
 import React from 'react';
 import M from 'materialize-css';
-import { SideNav, Button, SideNavItem } from 'react-materialize';
+import { SideNav, SideNavItem } from 'react-materialize';
 
 class Navbar extends React.Component {
     componentDidMount() {
@@ -12,42 +12,41 @@ class Navbar extends React.Component {
                 <nav id="mainNavbar" className="nav-wrapper grey darken-2" >
                     <div className="container">
                         <a href="/" className="brand-logo center">WeHarmony</a>
-                        <a href="/" className="sidenav-trigger" data-target="mobile-links">
-                            <div>
-                                <SideNav trigger={<Button />} options={{ closeOnClick: true }}>
-                                    <i className="material-icons">menu</i>
-                                    <SideNavItem userView user={{
-                                        background: 'https://placeimg.com/640/480/tech',
-                                        image: 'static/media/react-materialize-logo.824c6ea3.svg',
-                                        name: 'John Doe',
-
-                                    }} />
-                                    <SideNavItem href="#!icon" icon="cloud">
-                                        First Link With Icon
+                        {/* <a href="/" className="sidenav-trigger" data-target="mobile-links">
+                            <i className="material-icons">menu</i>
+                        </a> */}
+                        <div className="hide-on-large-only">
+                            <SideNav trigger={<i className="material-icons">menu</i>} options={{ closeOnClick: true }} icon="view_headline">
+                                <SideNavItem userView user={{
+                                    background: 'https://i.ytimg.com/vi/J3PxAxRTR78/maxresdefault.jpg',
+                                    image: 'static/media/react-materialize-logo.824c6ea3.svg',
+                                    name: 'Props.name',
+                                }} />
+                                <SideNavItem href="/Home" icon="home">
+                                    Home
                                     </SideNavItem>
-                                    <SideNavItem href="#!second">
-                                        Second Link
+                                <SideNavItem href="/Profile" icon="contacts">
+                                    My Profile
                                     </SideNavItem>
-                                    <SideNavItem divider />
-                                    <SideNavItem subheader>
-                                        Subheader
+                                <SideNavItem href="/Contact" icon="email">
+                                    Contact Us
                                     </SideNavItem>
-                                    <SideNavItem waves href="#!third">
-                                        Third Link With Waves
-                                    </SideNavItem>
-                                </SideNav>
-                            </div>
-
-                        </a>
+                            </SideNav>
+                        </div>
+                        {/* </a> */}
                         <ul id="navbar-links" className="right hide-on-med-and-down">
                             <li><a href="/Home" className="homeLink lnk">Home</a></li>
                             <li><a href="/Profile" className="profileLink lnk">My Profile</a></li>
-                            <li><a href="/Contact" className="contactLink lnk">Contact Us</a></li>
                         </ul>
                     </div>
-
                 </nav>
-            </header>
+                <div>
+                    <ul className="sidenav" id="mobile-links">
+                        <li><a href="/profile" className="profileLink">My Profile</a></li>
+                        <li><a href="/contact" className="contactLink">Contact Us</a></li>
+                    </ul>
+                </div>
+            </header >
         )
     }
 }

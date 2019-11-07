@@ -32,7 +32,7 @@
     border-radius: 25px;
 }
 .searchinputs{
-    margin: 50px auto auto auto;
+    margin: 30px auto auto auto;
 }
 #Search{
     background: #6d6d6d;
@@ -45,6 +45,6 @@
     margin: 50px auto;
     }
     .searchinputs{
-        margin: 250px auto auto auto;
+        margin: 200px auto auto auto;
     }
 }

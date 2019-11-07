@@ -9,9 +9,11 @@ import Navbar from "./Navbar/Navbar";
 import Footer from "./Footer/Footer";
 import M from 'materialize-css';
 
-import { Modal, Button } from 'react-materialize';
-
-const trigger = <Button>Open Modal</Button>;
+// import { Modal, Button } from 'react-materialize';
+// const trigger = <Button>Open Modal</Button>;
+// <Modal header="Modal Header" trigger={trigger}>
+//   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+// </Modal>
 
 
 class Container extends Component {
@@ -23,9 +25,6 @@ class Container extends Component {
     return (
       <Router>
         <Navbar />
-        <Modal header="Modal Header" trigger={trigger}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  </Modal>
         <div>
           <Switch>
             <Route exact path="/" component={Login} />
