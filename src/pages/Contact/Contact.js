@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Contact.css";
 import { Input, FormBtn, TextArea } from "../../components/Form";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 class Contact extends Component {
   state = {
@@ -15,12 +17,13 @@ class Contact extends Component {
     });
   };
   handleFormSubmit = event => {
-    alert(`Instrument: ${this.state.selectedInstrument} ---  Genre:${this.state.selectedGenre}`)
+    alert(`Name: ${this.state.name} ---  Message:${this.state.message}`)
   };
 
   render() {
     return (
       <div className="contactbackground" >
+        <Navbar />
         <h1 className="contactlogo">Contact Page</h1>
         <div className="contactus">
           <h3 id="contactushead">Contact us!</h3>
@@ -49,6 +52,9 @@ class Contact extends Component {
           <hr />
           <h6>Ask your mom for our number</h6>
           <span role="img" aria-label="nerd"><h6>🤓</h6></span>
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     );

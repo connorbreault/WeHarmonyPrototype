@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./Home.css"
 import { Input, FormBtn } from "../../components/Form";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 // import { Link } from "react-router-dom";
 
 class Login extends Component {
@@ -25,6 +27,7 @@ class Login extends Component {
   render() {
     return (
       <div className="homebackground" >
+        <Navbar />
         <div className="container">
           <h1 className="homelogo">Welcome</h1>
           <div className="searchbox">
@@ -50,7 +53,9 @@ class Login extends Component {
             </FormBtn>
             </div>
           </div>
-
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     );

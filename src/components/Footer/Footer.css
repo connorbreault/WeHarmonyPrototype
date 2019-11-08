@@ -1,7 +1,11 @@
+#foot{
+    margin: 5px auto 0px auto;
+}
 #footerRow{
     text-align: center;
-    margin: -44px auto auto auto;
+    margin: auto;
     font-family: 'Patrick Hand', cursive;
+    font-size: 15px
 }
 .footerItems{
     text-align: center !important

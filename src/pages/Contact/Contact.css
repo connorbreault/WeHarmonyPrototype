@@ -11,7 +11,9 @@
 .contactlogo{
     font-family: 'Satisfy', cursive;
     font-size: 55px;
-    color: #aeadad;
+    color: #e1d5c7;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #0f0f0b;
     text-decoration: underline;
     text-decoration-color: #a4b083;
     text-decoration-style: dotted;
@@ -20,14 +22,14 @@
 }
 .contactus{
     text-align: center;
-    background: gray;
+    background: #0f0f0b;
     border-radius: 25px;
     padding: 5px;
     opacity: 0.9;
 }
 #contactushead{
     font-family: 'Courgette', cursive;
-    
+    color: #dddad8;
 }
 #message{
     background: none;
@@ -37,14 +39,16 @@
 .messageform{
     margin: auto
 }
-#send{
-    margin: 50% !important
+#Send{
+    background: #dddad8;
+    color: #0f0f0b;
 }
 .ourcontact{
     text-align: center;
-    background: gray;
+    background: #0f0f0b;
+    color: #dddad8;
     border-radius: 25px;
-    margin: 5% 30%;
+    margin: 5px 30%;
     padding: 5px;
     opacity: 0.9;
 }
@@ -60,6 +64,6 @@
         margin: auto 30px
     }
     .ourcontact{
-        margin: 10% 40%;
+        margin: 5% 40%;
     }
 }

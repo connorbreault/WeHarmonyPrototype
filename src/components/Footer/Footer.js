@@ -4,7 +4,7 @@ import "./Footer.css"
 class Footer extends React.Component {
     render() {
         return (
-            <footer>
+            <footer id="foot">
                 <div className="footer-copyright grey darken-2" id="footerRow">
                     <div className="footerItems">
                         © 2019 Copyright

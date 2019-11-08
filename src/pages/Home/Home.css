@@ -28,7 +28,6 @@
     font-size: 40px;
 }
 .searchbox{
-    padding: 10px;
     border-radius: 25px;
 }
 .searchinputs{
@@ -42,9 +41,9 @@
 @media screen and ( min-width: 800px ) {
     .instructions{
     width: 60%;
-    margin: 50px auto;
+    margin: 60px auto;
     }
     .searchinputs{
-        margin: 175px auto auto auto;
+        margin: 150px auto auto auto;
     }
 }
