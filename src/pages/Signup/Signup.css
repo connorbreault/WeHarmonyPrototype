@@ -3,7 +3,6 @@
     background-size: cover;
     min-width: 100%;
     min-height: 100%;
-    height: 100vh;
     background-position: center
 }
 .signuptext {
@@ -26,6 +25,11 @@
     font-size: 20px !important;
     opacity: 80%;
     width: 85% !important
+}
+#locationInput{
+    font-family: 'Bowlby One SC', cursive;
+    color: white !important;
+    opacity: 1.0;
 }
 #Signup {
     background: #616161;

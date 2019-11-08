@@ -30,7 +30,7 @@ main {
 .searchtext{
     color: white;
     font-family: 'Courgette', cursive;
-    font-size: 40px;
+    font-size: 35px;
 }
 .searchbox{
     border-radius: 25px;
@@ -42,13 +42,25 @@ main {
     background: #6d6d6d;
     font-family: 'Patrick Hand', cursive;
 }
-
+.select-dropdown{
+    font-size: 20px !important;
+    font-family: 'Bowlby One SC', cursive;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #2e3226;
+}
+.dropdown-content li{
+    text-align: center !important;
+    -webkit-text-stroke-width: 0px;
+}
 @media screen and ( min-width: 800px ) {
     .instructions{
     width: 60%;
     margin: 60px auto;
     }
     .searchinputs{
-        margin: 150px auto auto auto;
+        margin: 120px auto auto auto;
+    }
+    .select-dropdown{
+        font-size: 25px !important;
     }
 }

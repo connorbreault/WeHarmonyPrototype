@@ -58,6 +58,10 @@
 #Signup{
     background: #8b4e3a
 }
+.select-dropdown{
+    text-align: center;
+    color: white
+}
 .logintext{}
 @media screen and ( min-width: 800px ) {
     .loginbackground {

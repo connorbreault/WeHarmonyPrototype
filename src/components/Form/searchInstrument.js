@@ -1,13 +1,13 @@
 import React from 'react';
 import { Select, actionHandler } from 'react-materialize';
-class InstrumentForm extends React.Component {
+class searchInstrument extends React.Component {
     render() {
         return (
 
             <div className="input-field col s12">
-                <Select multiple defaultValue={['']} onChange={actionHandler}>
+                <Select defaultValue="" onChange={actionHandler}>
                     <option value="">
-                        Select the intruments you play!
+                        Select desired musician
                     </option>
                     <option value="Guitar">
                         Guitar
@@ -38,4 +38,4 @@ class InstrumentForm extends React.Component {
         )
     }
 }
-export default InstrumentForm
+export default searchInstrument
