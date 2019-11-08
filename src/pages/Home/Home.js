@@ -28,32 +28,34 @@ class Login extends Component {
     return (
       <div className="homebackground" >
         <Navbar />
-        <div className="container">
-          <h1 className="homelogo">Welcome</h1>
-          <div className="searchbox">
-            <div className="instructions">
-              <h2 className="searchtext">What kind of musician are you looking for?</h2>
-            </div>
-            <div className="searchinputs">
-              <Input
-                value={this.state.selectedInstrument}
-                onChange={this.handleInputChange}
-                name="selectedInstrument"
-                placeholder="Select instrument"
-              />
-              <Input
-                value={this.state.selectedGenre}
-                onChange={this.handleInputChange}
-                name="selectedGenre"
-                placeholder="Select genre"
-              />
-              <FormBtn
-                onClick={this.handleFormSubmit} id="Search">
-                Search
+        <main>
+          <div className="container">
+            <h1 className="homelogo">Welcome</h1>
+            <div className="searchbox">
+              <div className="instructions">
+                <h2 className="searchtext">What kind of musician are you looking for?</h2>
+              </div>
+              <div className="searchinputs">
+                <Input
+                  value={this.state.selectedInstrument}
+                  onChange={this.handleInputChange}
+                  name="selectedInstrument"
+                  placeholder="Select instrument"
+                />
+                <Input
+                  value={this.state.selectedGenre}
+                  onChange={this.handleInputChange}
+                  name="selectedGenre"
+                  placeholder="Select genre"
+                />
+                <FormBtn
+                  onClick={this.handleFormSubmit} id="Search">
+                  Search
             </FormBtn>
+              </div>
             </div>
           </div>
-        </div>
+        </main>
         <div>
           <Footer />
         </div>

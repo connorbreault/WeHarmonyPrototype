@@ -29,15 +29,17 @@ class Profile extends Component {
     return (
       <div className="profilebackground" >
         <Navbar />
-        <div className="Picandname container">
-          <div className="row"></div>
-          <div className="col-6">
-            <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
+        <main>
+          <div className="Picandname container">
+            <div className="row"></div>
+            <div className="col-6">
+              <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
+            </div>
+            <div className="col-6">
+              <p className="Profilename">(props.name)'s Profile</p>
+            </div>
           </div>
-          <div className="col-6">
-            <p className="Profilename">(props.name)'s Profile</p>
-          </div>
-        </div>
+        </main>
         <div>
           <Footer />
         </div>
