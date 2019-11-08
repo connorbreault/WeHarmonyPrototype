@@ -62,8 +62,19 @@
     text-align: center;
     color: white
 }
-.logintext{}
-@media screen and ( min-width: 800px ) {
+/* =========== Over 350px ========== */
+@media only screen and ( min-width: 350px ) {
+    .loginbox{
+        margin: 90% auto auto auto;
+    }
+}
+@media (max-height: 820px) and ( min-height: 700px ) {
+    .loginbox{
+        margin: 98% auto auto auto;
+    }
+}
+/* =========== Over 800px ========== */
+@media only screen and ( min-width: 800px ) {
     .loginbackground {
         background-position-x: center
     }

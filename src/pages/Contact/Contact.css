@@ -54,7 +54,7 @@ main {
     background: #0f0f0b;
     color: #dddad8;
     border-radius: 25px;
-    margin: 5px 30%;
+    margin: 3% 30%;
     padding: 5px;
     opacity: 0.9;
 }
@@ -66,7 +66,13 @@ main {
 .thanksMessage{
     display: none
 }
-@media screen and ( min-width: 800px ) {
+@media only screen and ( min-width: 350px ) {
+    .ourcontact{
+        margin: 15% 30%;
+    }
+}
+    /* ========== Over 800px =========== */
+@media only screen and ( min-width: 800px ) {
     .contactbackground{
         background-position: inherit
     }
@@ -79,5 +85,22 @@ main {
     }
     .ourcontact{
         margin: 5% 20% auto 20%;
+    }
+
+}
+@media(max-width: 1025px) and (min-width: 1023px){
+    .contactbackground{
+        background-position: center
+    }
+    .ourcontact{
+        margin: 40% 30%;
+        font-size: 40px
+    }
+    .contactus{
+        font-size: 50px
+    }
+    .contactlogo{
+        font-size: 80px;
+        margin: auto auto auto -10%;
     }
 }
