@@ -10,7 +10,7 @@ class Footer extends React.Component {
                         © 2019 Copyright
                         </div>
                     <div className="footerItems">
-                        <a className="" href="/Contact">Contact us</a>
+                        <a id="contactLink" href="/Contact">Contact us</a>
                     </div>
                 </div>
             </footer>

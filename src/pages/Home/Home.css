@@ -30,7 +30,7 @@ main {
 .searchtext{
     color: white;
     font-family: 'Courgette', cursive;
-    font-size: 40px;
+    font-size: 35px;
 }
 .searchbox{
     border-radius: 25px;
@@ -49,6 +49,6 @@ main {
     margin: 60px auto;
     }
     .searchinputs{
-        margin: 150px auto auto auto;
+        margin: 120px auto auto auto;
     }
 }

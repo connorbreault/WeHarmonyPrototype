@@ -3,13 +3,18 @@ class InstrumentForm extends React.Component {
     render() {
         return (
             <div className="input-field col s12">
-                <select multiple>
-                    <option value="" disabled defaultValue>Select your instrument</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                <select multiple className="browser-default myselect">
+                    <option value="" disabled defaultValue>Select your instrument(s)</option>
+                    <option value="Guitar">Guitar</option>
+                    <option value="Bass">Bass</option>
+                    <option value="Drums">Drums</option>
+                    <option value="Singer">Singer</option>
+                    <option value="Piano">Piano</option>
+                    <option value="Violin">Violin</option>
+                    <option value="Flute">Flute</option>
+                    <option value="Saxophone">Saxophone</option>
                 </select>
-                <label>Select your instruments</label>
+                {/* <label>Select your instruments</label> */}
             </div>
         )
     }

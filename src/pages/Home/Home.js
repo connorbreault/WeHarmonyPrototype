@@ -33,7 +33,7 @@ class Login extends Component {
             <h1 className="homelogo">Welcome</h1>
             <div className="searchbox">
               <div className="instructions">
-                <h2 className="searchtext">What kind of musician are you looking for?</h2>
+                <h4 className="searchtext">What kind of musician are you looking for?</h4>
               </div>
               <div className="searchinputs">
                 <Input
@@ -56,9 +56,7 @@ class Login extends Component {
             </div>
           </div>
         </main>
-        <div>
-          <Footer />
-        </div>
+        <Footer />
       </div>
     );
   }
