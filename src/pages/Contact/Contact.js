@@ -1,23 +1,67 @@
-import React from "react";
-import "./Contact.css"
+import React, { Component } from "react";
+import "./Contact.css";
+import { Input, FormBtn, TextArea } from "../../components/Form";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+import Emoji from "../../components/Emoji";
 
-function Contact() {
-  return (
-    <div>
-      <h1>Contact Page</h1>
-      <p>
-        Integer cursus bibendum sem non pretium. Vestibulum in aliquet sem, quis molestie urna.
-        Aliquam semper ultrices varius. Aliquam faucibus sit amet magna a ultrices. Aenean
-        pellentesque placerat lacus imperdiet efficitur. In felis nisl, luctus non ante euismod,
-        tincidunt bibendum mi. In a molestie nisl, eu sodales diam. Nam tincidunt lacus quis magna
-        posuere, eget tristique dui dapibus. Maecenas fermentum elementum faucibus. Quisque nec
-        metus vestibulum, egestas massa eu, sollicitudin ipsum. Nulla facilisi. Sed ut erat ligula.
-        Nam tincidunt nunc in nibh dictum ullamcorper. Class aptent taciti sociosqu ad litora
-        torquent per conubia nostra, per inceptos himenaeos. Etiam ornare rutrum felis at rhoncus.
-        Etiam vel condimentum magna, quis tempor nulla.
-      </p>
-    </div>
-  );
+class Contact extends Component {
+  state = {
+    name: "",
+    message: ""
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+  handleFormSubmit = event => {
+    alert(`Name: ${this.state.name} ---  Message:${this.state.message}`)
+  };
+
+  render() {
+    return (
+      <div className="contactbackground" >
+        <Navbar />
+        <main>
+          <h1 className="contactlogo">Contact Page</h1>
+          <div className="contactus">
+            <h3 id="contactushead">Contact us!</h3>
+            <div className="messageform">
+              <Input
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                name="name"
+                placeholder="Enter your name"
+              />
+              <TextArea
+                id="message"
+                value={this.state.message}
+                onChange={this.handleInputChange}
+                name="message"
+                placeholder="Leave a message!"
+              />
+              <FormBtn
+                onClick={this.handleFormSubmit} id="Send">
+                Send
+          </FormBtn>
+            </div>
+          </div>
+          <div className="ourcontact">
+            <h5>~ Or ~</h5>
+            <hr />
+            <h6>Ask your mom for our number</h6>
+            <Emoji symbol="🤓" />
+          </div>
+        </main>
+        <div>
+          <Footer />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Contact;

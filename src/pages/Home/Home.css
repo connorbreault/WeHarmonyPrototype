@@ -2,9 +2,14 @@
     background: url("../../images/HomeBG.jpg") no-repeat; 
     background-size: cover;
     min-width: 100%;
-    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     height: 100vh;
     background-position: center
+}
+main {
+    flex: 1 0 auto;
 }
 .homelogo{
     font-family: 'Satisfy', cursive;
@@ -28,7 +33,6 @@
     font-size: 40px;
 }
 .searchbox{
-    padding: 10px;
     border-radius: 25px;
 }
 .searchinputs{
@@ -42,9 +46,9 @@
 @media screen and ( min-width: 800px ) {
     .instructions{
     width: 60%;
-    margin: 50px auto;
+    margin: 60px auto;
     }
     .searchinputs{
-        margin: 200px auto auto auto;
+        margin: 150px auto auto auto;
     }
 }

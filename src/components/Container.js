@@ -5,8 +5,6 @@ import Profile from "../pages/Profile/Profile";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
-import Navbar from "./Navbar/Navbar";
-import Footer from "./Footer/Footer";
 import M from 'materialize-css';
 
 // import { Modal, Button } from 'react-materialize';
@@ -24,7 +22,6 @@ class Container extends Component {
     // if (this.state.currentPage === "Login" || this.state.currentPage === "Signup") {
     return (
       <Router>
-        <Navbar />
         <div>
           <Switch>
             <Route exact path="/" component={Login} />
@@ -34,7 +31,6 @@ class Container extends Component {
             <Route exact path="/Contact" component={Contact} />
           </Switch>
         </div>
-        <Footer />
       </Router >
     );
   }

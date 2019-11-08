@@ -2,7 +2,9 @@
     background: url("../../images/ProfileBG.jpeg") no-repeat; 
     background-size: cover;
     min-width: 100%;
-    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     height: 100vh
 }
 .Profilename{
@@ -10,4 +12,7 @@
     padding: 25px;
     color: white;
     font-family: 'Courgette', cursive;
+}
+main {
+    flex: 1 0 auto;
 }
