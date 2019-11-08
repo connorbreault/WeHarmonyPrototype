@@ -3,6 +3,7 @@ import "./Contact.css";
 import { Input, FormBtn, TextArea } from "../../components/Form";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import Emoji from "../../components/Emoji";
 
 class Contact extends Component {
   state = {
@@ -52,7 +53,7 @@ class Contact extends Component {
             <h5>~ Or ~</h5>
             <hr />
             <h6>Ask your mom for our number</h6>
-            <span role="img" aria-label="nerd"><h6>🤓</h6></span>
+            <Emoji symbol="🤓" />
           </div>
         </main>
         <div>
