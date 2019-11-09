@@ -1,13 +1,13 @@
 import React from 'react';
 import { Select, actionHandler } from 'react-materialize';
-class genreForm extends React.Component {
+class searchGenre extends React.Component {
     render() {
         return (
             <div className="input-field col s12">
 
-                <Select multiple defaultValue={['']} onChange={actionHandler}>
+                <Select defaultValue="" onChange={actionHandler}>
                     <option value="">
-                        Select your genres
+                        Select your genre
                     </option>
                     <option value="Rock">
                         Rock
@@ -35,4 +35,4 @@ class genreForm extends React.Component {
         )
     }
 }
-export default genreForm
+export default searchGenre

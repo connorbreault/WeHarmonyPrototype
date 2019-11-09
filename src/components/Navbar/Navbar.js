@@ -1,6 +1,7 @@
 import React from 'react';
 import M from 'materialize-css';
 import { SideNav, SideNavItem } from 'react-materialize';
+import pic from "../../images/Ad.jpg"
 
 class Navbar extends React.Component {
     componentDidMount() {
@@ -12,15 +13,13 @@ class Navbar extends React.Component {
                 <nav id="mainNavbar" className="nav-wrapper grey darken-2" >
                     <div className="container">
                         <a href="/" className="brand-logo center">WeHarmony</a>
-                        {/* <a href="/" className="sidenav-trigger" data-target="mobile-links">
-                            <i className="material-icons">menu</i>
-                        </a> */}
                         <div className="hide-on-large-only">
                             <SideNav trigger={<i className="material-icons">menu</i>} options={{ closeOnClick: true }} icon="view_headline">
                                 <SideNavItem userView user={{
-                                    background: 'https://i.ytimg.com/vi/J3PxAxRTR78/maxresdefault.jpg',
+                                    background: pic,
                                     image: 'static/media/react-materialize-logo.824c6ea3.svg',
                                     name: 'Props.name',
+                                    id: "test"
                                 }} />
                                 <SideNavItem href="/Home" icon="home">
                                     Home
@@ -31,9 +30,9 @@ class Navbar extends React.Component {
                                 <SideNavItem href="/Contact" icon="email">
                                     Contact Us
                                     </SideNavItem>
+                                {/* <img id="sidenavBottomAd" style={{ width: "300px", height: "150px" }} src="https://i.ytimg.com/vi/J3PxAxRTR78/maxresdefault.jpg" alt=""></img> */}
                             </SideNav>
                         </div>
-                        {/* </a> */}
                         <ul id="navbar-links" className="right hide-on-med-and-down">
                             <li><a href="/Home" className="homeLink lnk">Home</a></li>
                             <li><a href="/Profile" className="profileLink lnk">My Profile</a></li>

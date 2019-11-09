@@ -1,3 +1,7 @@
 #mainNavbar{
     opacity: 0.9 !important
 }
+#sidenavBottomAd{
+    width: 300px !important;
+    height: 150px
+}
