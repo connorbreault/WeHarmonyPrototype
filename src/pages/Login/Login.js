@@ -3,10 +3,23 @@ import { Input } from "../../components/Form";
 import { Link } from "react-router-dom";
 import "./Login.css"
 
+// firebase.auth().createUser(name, etc).catch(function(error) {
+// Handle Errors here.
+// var errorCode = error.code;
+// var errorMessage = error.message;
+// ...
+//});
+
+// firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
 
 class Login extends Component {
   state = {
-    username: "",
+    email: "",
     password: ""
   };
 
@@ -18,7 +31,7 @@ class Login extends Component {
   };
   handleFormSubmit = event => {
     // event.preventDefault();
-    alert(`Username: ${this.state.username} --- Password: ${this.state.password}`)
+    alert(`Email: ${this.state.email} --- Password: ${this.state.password}`)
   };
 
   render() {
@@ -29,10 +42,10 @@ class Login extends Component {
           <div className="loginbox">
             <h1 className="logintext">Log in</h1>
             <Input
-              value={this.state.username}
+              value={this.state.email}
               onChange={this.handleInputChange}
-              name="username"
-              placeholder="username"
+              name="email"
+              placeholder="email"
             />
             <Input
               value={this.state.password}

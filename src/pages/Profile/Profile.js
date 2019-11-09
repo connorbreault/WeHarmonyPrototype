@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "./Profile.css"
+import "./Profile.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 class Profile extends Component {
   state = {
@@ -26,14 +28,20 @@ class Profile extends Component {
   render() {
     return (
       <div className="profilebackground" >
-        <div className="Picandname container">
-          <div className="row"></div>
-          <div className="col-6">
-            <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
+        <Navbar />
+        <main>
+          <div className="Picandname container">
+            <div className="row"></div>
+            <div className="col-6">
+              <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
+            </div>
+            <div className="col-6">
+              <p className="Profilename">(props.name)'s Profile</p>
+            </div>
           </div>
-          <div className="col-6">
-            <p className="Profilename">(props.name)'s Profile</p>
-          </div>
+        </main>
+        <div>
+          <Footer />
         </div>
       </div>
     );
