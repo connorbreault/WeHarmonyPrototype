@@ -6,6 +6,7 @@ import GenreForm from "../../components/Form/genre";
 import { Link } from "react-router-dom";
 
 class Signup extends React.Component {
+
     state = {
         firstname: "",
         lastname: "",
@@ -17,13 +18,13 @@ class Signup extends React.Component {
         genres: []
     }
 
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
         });
     };
+
     handleFormSubmit = event => {
         // event.preventDefault();
         // if (this.state.username && this.state.password) {
