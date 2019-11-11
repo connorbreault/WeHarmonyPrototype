@@ -1,9 +1,18 @@
 import React from "react";
+import firebase from 'firebase';
 import "./Signup.css";
 import { Input } from "../../components/Form";
 import InstrumentForm from "../../components/Form/instrument";
 import GenreForm from "../../components/Form/genre";
 import { Link } from "react-router-dom";
+
+
+// firebase.auth().createUser(firstName, lastName, email, username, password, city).catch(function (error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // ...
+// });
 
 class Signup extends React.Component {
     state = {
