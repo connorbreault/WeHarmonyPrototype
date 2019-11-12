@@ -5,7 +5,6 @@ import Profile from "../pages/Profile/Profile";
 import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
-import M from 'materialize-css';
 
 // import { Modal, Button } from 'react-materialize';
 // const trigger = <Button>Open Modal</Button>;
@@ -15,9 +14,7 @@ import M from 'materialize-css';
 
 
 class Container extends Component {
-  componentDidMount() {
-    M.Sidenav.init(this.sidenav);
-  }
+
   render() {
     // if (this.state.currentPage === "Login" || this.state.currentPage === "Signup") {
     return (

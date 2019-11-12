@@ -4,6 +4,12 @@ import { Input } from "../../components/Form";
 import InstrumentForm from "../../components/Form/instrument";
 import GenreForm from "../../components/Form/genre";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+
+
+// API CODE
+
+// AIzaSyBhef7w8QDnJeG0zyuIT_An9llVYqOXDv4
 
 class Signup extends React.Component {
 
@@ -14,6 +20,7 @@ class Signup extends React.Component {
         username: "",
         password: "",
         location: "",
+        latLong: "",
         instruments: [],
         genres: []
     }
@@ -26,15 +33,24 @@ class Signup extends React.Component {
     };
 
     handleFormSubmit = event => {
-        // event.preventDefault();
-        // if (this.state.username && this.state.password) {
-        //     console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
-        // } else {
-        //     // event.preventDefault()
-        //     // alert("Fill out the form please")
-        // }
-        alert(`First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
+
+        // Geocode API 
+        Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=`)
+            .then(res => {
+                const whole = res
+                console.log(whole)
+                const latitude = res.data.results[0].geometry.location.lat;
+                const longitude = res.data.results[0].geometry.location.lng;
+                alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
+                // this.setState({ latLong })
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
     };
+
+
 
 
     render() {
@@ -48,31 +64,31 @@ class Signup extends React.Component {
                             value={this.state.firstname}
                             onChange={this.handleInputChange}
                             name="firstname"
-                            placeholder="Enter your first name"
+                            placeholder="First name"
                         />
                         <Input
                             value={this.state.lastname}
                             onChange={this.handleInputChange}
                             name="lastname"
-                            placeholder="Enter your last name"
+                            placeholder="Last name"
                         />
                         <Input
                             value={this.state.email}
                             onChange={this.handleInputChange}
                             name="email"
-                            placeholder="Enter your email"
+                            placeholder="Email"
                         />
                         <Input
                             value={this.state.username}
                             onChange={this.handleInputChange}
                             name="username"
-                            placeholder="Choose a username"
+                            placeholder="Username"
                         />
                         <Input
                             value={this.state.password}
                             onChange={this.handleInputChange}
                             name="password"
-                            placeholder="Choose a password"
+                            placeholder="Password"
                         />
                         <h5>*IMPORTANT*</h5>
                         <Input
@@ -80,7 +96,7 @@ class Signup extends React.Component {
                             value={this.state.location}
                             onChange={this.handleInputChange}
                             name="location"
-                            placeholder="Your location by city"
+                            placeholder="Zip code"
                         />
                         <InstrumentForm
                             className="signupFormResize"
