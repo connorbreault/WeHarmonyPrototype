@@ -1,3 +1,4 @@
+/* Background img */
 .signupbackground{
     background: url("../../images/SignupBG.png") no-repeat; 
     background-size: cover;
@@ -6,12 +7,14 @@
     height: 120vh;
     background-position: center
 }
+/* Page Header */
 .signuptext {
     margin: 0% auto 5% -25%;
     padding: 25px;
     color: white;
     font-family: 'Courgette', cursive;
 }
+/* Signup container div */
 .signupbox {
     background: #43b2f8;
     opacity: 0.95;
@@ -19,6 +22,19 @@
     border-radius: 25px;
     margin: 15px 10px;
 }
+/* Info section Header */
+#yourinfo{
+    color: #a6fbfb;
+    font-family: 'Courgette', cursive;
+}
+/* Important section header */
+#important{
+    color: red;
+    font-family: 'Courgette', cursive;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+/* Inputs */
 .form-control{
     text-align: center;
     border: transparent;
@@ -32,6 +48,7 @@
     color: white !important;
     opacity: 1.0;
 }
+/* Sign up button */
 #Signup {
     background: #616161;
 }

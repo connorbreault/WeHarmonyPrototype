@@ -1,3 +1,4 @@
+/* Background img */
 .profilebackground{
     background: url("../../images/ProfileBG.jpeg") no-repeat; 
     background-size: cover;
@@ -7,12 +8,14 @@
     min-height: 100vh;
     height: 100vh
 }
+/* Page Header */
 .Profilename{
     margin: 0px auto;
     padding: 25px;
     color: white;
     font-family: 'Courgette', cursive;
 }
+/* Footer Flex */
 main {
     flex: 1 0 auto;
 }

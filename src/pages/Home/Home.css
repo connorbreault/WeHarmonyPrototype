@@ -1,3 +1,4 @@
+/* Background img */
 .homebackground{
     background: url("../../images/HomeBG.jpg") no-repeat; 
     background-size: cover;
@@ -8,9 +9,13 @@
     height: 100vh;
     background-position: center
 }
+
+/* Footer flex */
 main {
     flex: 1 0 auto;
 }
+
+/* Page header */
 .homelogo{
     font-family: 'Satisfy', cursive;
     font-size: 55px;
@@ -21,37 +26,57 @@ main {
     margin: 0% auto auto auto;
     padding: 20px;
 }
+
+/* Search container div */
+.searchbox{
+    border-radius: 25px;
+}
+
+/* Instruction continer div */
 .instructions{
     background: gray;
     opacity: 0.8;
     padding: 5px 10px;
     border-radius: 20px;
 }
+
+/* Search div header */
 .searchtext{
     color: white;
     font-family: 'Courgette', cursive;
     font-size: 35px;
 }
-.searchbox{
-    border-radius: 25px;
-}
+
+/* Inputs */
 .searchinputs{
     margin: 30px auto auto auto;
 }
+
+/* Search button */
 #Search{
     background: #6d6d6d;
     font-family: 'Patrick Hand', cursive;
 }
+
+/* Materialize Selects */
 .select-dropdown{
     font-size: 20px !important;
+    color: white;
+    text-align: center;
     font-family: 'Bowlby One SC', cursive;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #2e3226;
 }
+
+/* Materialize select list */
 .dropdown-content li{
     text-align: center !important;
     -webkit-text-stroke-width: 0px;
 }
+
+
+/* - Media Queries - */
+/* =========== Over 374px ========== */
 @media only screen and ( min-width: 374px ) {
     .instructions{
         margin: 10% auto auto auto;
@@ -60,6 +85,7 @@ main {
         margin: 30% auto auto auto;
     }
 }
+/* =========== Over 377px ========== */
 @media only screen and ( min-width: 377px ) {
     .instructions{
         margin: 20% auto auto auto;
@@ -68,6 +94,7 @@ main {
         margin: 35% auto auto auto;
     }
 }
+/* =========== Over 800px ========== */
 @media screen and ( min-width: 800px ) {
     .instructions{
     width: 60%;

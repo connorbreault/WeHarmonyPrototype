@@ -7,7 +7,7 @@ class genreForm extends React.Component {
 
                 <Select multiple defaultValue={['']} onChange={actionHandler}>
                     <option value="">
-                        Select your genres
+                        My styles...
                     </option>
                     <option value="Rock">
                         Rock
