@@ -20,12 +20,9 @@ class Contact extends Component {
   handleFormSubmit = event => {
     alert(`Name: ${this.state.name} ---  Message:${this.state.message}`)
   };
-<<<<<<< HEAD
-=======
   messageSent = () => {
 
   }
->>>>>>> a5c51df116b24e7a49291ee3fc0d4a60ff4661f3
 
   render() {
     return (
@@ -33,30 +30,6 @@ class Contact extends Component {
         <Navbar />
         <main>
           <h1 className="contactlogo">Contact Page</h1>
-<<<<<<< HEAD
-          <div className="contactus">
-            <h3 id="contactushead">Contact us!</h3>
-            <div className="messageform">
-              <Input
-                value={this.state.name}
-                onChange={this.handleInputChange}
-                name="name"
-                placeholder="Enter your name"
-              />
-              <TextArea
-                id="message"
-                value={this.state.message}
-                onChange={this.handleInputChange}
-                name="message"
-                placeholder="Leave a message!"
-              />
-              <FormBtn
-                onClick={this.handleFormSubmit} id="Send">
-                Send
-          </FormBtn>
-            </div>
-          </div>
-=======
           <div className="messageBox">
             <div className="contactus">
               <h3 id="contactushead">Contact us!</h3>
@@ -84,7 +57,6 @@ class Contact extends Component {
           <div className="thanksMessage">
             <h2>Thanks!</h2>
           </div>
->>>>>>> a5c51df116b24e7a49291ee3fc0d4a60ff4661f3
           <div className="ourcontact">
             <h5>~ Or ~</h5>
             <hr />

@@ -12,7 +12,7 @@ class Navbar extends React.Component {
             <header>
                 <nav id="mainNavbar" className="nav-wrapper grey darken-2" >
                     <div className="container">
-                        <a href="/" className="brand-logo center">WeHarmony</a>
+                        <a href="/Home" className="brand-logo center">WeHarmony</a>
                         <div className="hide-on-large-only">
                             <SideNav trigger={<i className="material-icons">menu</i>} options={{ closeOnClick: true }} icon="view_headline">
                                 <SideNavItem userView user={{

@@ -3,23 +3,6 @@ import { Input } from "../../components/Form";
 import { Link } from "react-router-dom";
 import "./Login.css"
 
-<<<<<<< HEAD
-// firebase.auth().createUser(name, etc).catch(function(error) {
-// Handle Errors here.
-// var errorCode = error.code;
-// var errorMessage = error.message;
-// ...
-//});
-
-// firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-//   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-//   // ...
-// });
-
-=======
->>>>>>> a5c51df116b24e7a49291ee3fc0d4a60ff4661f3
 class Login extends Component {
   state = {
     email: "",
