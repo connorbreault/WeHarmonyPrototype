@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { Input } from "../../components/Form";
 import { Link } from "react-router-dom";
+import firebase from 'firebase';
 import "./Login.css"
+
+
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
 
 class Login extends Component {
 
