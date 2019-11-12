@@ -20,6 +20,9 @@ class Contact extends Component {
   handleFormSubmit = event => {
     alert(`Name: ${this.state.name} ---  Message:${this.state.message}`)
   };
+  messageSent = () => {
+
+  }
 
   render() {
     return (
@@ -27,27 +30,32 @@ class Contact extends Component {
         <Navbar />
         <main>
           <h1 className="contactlogo">Contact Page</h1>
-          <div className="contactus">
-            <h3 id="contactushead">Contact us!</h3>
-            <div className="messageform">
-              <Input
-                value={this.state.name}
-                onChange={this.handleInputChange}
-                name="name"
-                placeholder="Enter your name"
-              />
-              <TextArea
-                id="message"
-                value={this.state.message}
-                onChange={this.handleInputChange}
-                name="message"
-                placeholder="Leave a message!"
-              />
-              <FormBtn
-                onClick={this.handleFormSubmit} id="Send">
-                Send
-          </FormBtn>
+          <div className="messageBox">
+            <div className="contactus">
+              <h3 id="contactushead">Contact us!</h3>
+              <div className="messageform">
+                <Input
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                  name="name"
+                  placeholder="Enter your name"
+                />
+                <TextArea
+                  id="message"
+                  value={this.state.message}
+                  onChange={this.handleInputChange}
+                  name="message"
+                  placeholder="Leave a message!"
+                />
+                <FormBtn
+                  onClick={this.handleFormSubmit} id="Send">
+                  Send
+                </FormBtn>
+              </div>
             </div>
+          </div>
+          <div className="thanksMessage">
+            <h2>Thanks!</h2>
           </div>
           <div className="ourcontact">
             <h5>~ Or ~</h5>

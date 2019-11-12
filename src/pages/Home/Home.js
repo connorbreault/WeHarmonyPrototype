@@ -1,29 +1,33 @@
 import React, { Component } from "react";
 import "./Home.css"
-import { Input, FormBtn } from "../../components/Form";
+import { FormBtn } from "../../components/Form";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-// import { Link } from "react-router-dom";
+import SearchInstrument from "../../components/Form/searchInstrument";
+import SearchGenre from "../../components/Form/searchGenre";
 
 class Login extends Component {
 
   state = {
-    Instruments: ["Singer", "Guitar", "Bass", "Drums", "Piano"],
-    Genres: ["Rock", "Indie", "Metal", "Jazz", "Alternative"],
     selectedInstrument: "",
     selectedGenre: ""
   };
 
+  // setState when inputs recieve keystrokes
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
+  // When form is submitted
   handleFormSubmit = event => {
     alert(`Instrument: ${this.state.selectedInstrument} ---  Genre:${this.state.selectedGenre}`)
   };
 
+
+  // Render Page
   render() {
     return (
       <div className="homebackground" >
@@ -33,32 +37,28 @@ class Login extends Component {
             <h1 className="homelogo">Welcome</h1>
             <div className="searchbox">
               <div className="instructions">
-                <h2 className="searchtext">What kind of musician are you looking for?</h2>
+                <h4 className="searchtext">What kind of musician are you looking for?</h4>
               </div>
               <div className="searchinputs">
-                <Input
+                <SearchInstrument
                   value={this.state.selectedInstrument}
                   onChange={this.handleInputChange}
                   name="selectedInstrument"
-                  placeholder="Select instrument"
                 />
-                <Input
+                <SearchGenre
                   value={this.state.selectedGenre}
                   onChange={this.handleInputChange}
                   name="selectedGenre"
-                  placeholder="Select genre"
                 />
                 <FormBtn
                   onClick={this.handleFormSubmit} id="Search">
                   Search
-            </FormBtn>
+                </FormBtn>
               </div>
             </div>
           </div>
         </main>
-        <div>
-          <Footer />
-        </div>
+        <Footer />
       </div>
     );
   }

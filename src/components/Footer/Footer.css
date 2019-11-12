@@ -8,6 +8,16 @@
 .footerItems{
     text-align: center !important
 }
+<<<<<<< HEAD
+=======
+#contactLink{
+    text-decoration: underline;
+    letter-spacing: 3px
+}
+#copyright{
+    color: #aeadad
+}
+>>>>>>> a5c51df116b24e7a49291ee3fc0d4a60ff4661f3
 @media screen and ( min-width: 800px ) {
     #footerRow{
         width: 55%

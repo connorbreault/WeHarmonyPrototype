@@ -4,19 +4,23 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 class Profile extends Component {
+
   state = {
     username: "",
     password: ""
   };
 
+
+  // setState when inputs recieve keystrokes
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
+  // When form is submitted
   handleFormSubmit = event => {
-    // event.preventDefault();
     if (this.state.username.length > 0 && this.state.password > 0) {
       console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
     } else {
@@ -25,6 +29,8 @@ class Profile extends Component {
     }
   };
 
+
+  // Render Page 
   render() {
     return (
       <div className="profilebackground" >

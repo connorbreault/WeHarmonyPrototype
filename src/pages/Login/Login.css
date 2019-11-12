@@ -1,10 +1,4 @@
-/* body{
-    background-image: url('../../images/LoginPic.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    overflow:hidden;
-} */
+/* Background img */
 .loginbackground{
     background: url("../../images/LoginBG.jpg") no-repeat; 
    background-size: cover;
@@ -12,9 +6,13 @@
    background-position-x: -150px;
    height: 100vh
 }
+
+/* Page container */
 .container{
     text-align: center
 }
+
+/* Logo Header */
 .logo{
     font-family: 'Satisfy', cursive;
     font-size: 55px;
@@ -25,9 +23,13 @@
     margin: 0% auto auto auto;
     padding: 30px 0px;
 }
+
+/* Login container */
 .loginbox{
     margin: 70% auto auto auto;
 }
+
+/* Login header */
 .logintext{
     font-family: 'Courgette', cursive;
     font-size: 50px;
@@ -39,6 +41,8 @@
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
 }
+
+/* Inputs */
 .form-control{
     text-align: center;
     background: #de965c;
@@ -47,31 +51,65 @@
     font-size: 20px !important;
     opacity: 80%;
 }
+
+/* Buttons */
 .btn{
     font-family: 'Courgette', cursive;
     margin: auto 5%;
     font-size: 25px;
 }
+
+/* Login button */
 #Login{
     background: #efb174
 }
+
+/* Signup button */
 #Signup{
     background: #8b4e3a
 }
-.logintext{}
-@media screen and ( min-width: 800px ) {
+
+
+
+/* - MEDIA QUERIES - */
+
+/* =========== Over 350px ========== */
+@media only screen and ( min-width: 350px ) {
+
+    /* Login container */
+    .loginbox{
+        margin: 90% auto auto auto;
+    }
+
+}
+
+@media (max-height: 820px) and ( min-height: 700px ) {
+
+    /* Login container */
+    .loginbox{
+        margin: 98% auto auto auto;
+    }
+
+}
+
+/* =========== Over 800px ========== */
+@media only screen and ( min-width: 800px ) {
+
     .loginbackground {
         background-position-x: center
     }
+
+    /* Logo Header */
     .logo {
         margin: 0% auto auto auto;
     }
-    .loginbox{
-        margin: auto;
-    }
+
+    /* Login container */
     .loginbox{
         margin: 35% auto auto auto;
     }
+    
+    /* Inputs */
     .form-control{
         width: 50%;
         margin: auto
