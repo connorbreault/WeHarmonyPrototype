@@ -5,7 +5,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import SearchInstrument from "../../components/Form/searchInstrument";
 import SearchGenre from "../../components/Form/searchGenre";
-// import { Link } from "react-router-dom";
 
 class Login extends Component {
 
@@ -14,16 +13,21 @@ class Login extends Component {
     selectedGenre: ""
   };
 
+  // setState when inputs recieve keystrokes
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
+  // When form is submitted
   handleFormSubmit = event => {
     alert(`Instrument: ${this.state.selectedInstrument} ---  Genre:${this.state.selectedGenre}`)
   };
 
+
+  // Render Page
   render() {
     return (
       <div className="homebackground" >
@@ -49,7 +53,7 @@ class Login extends Component {
                 <FormBtn
                   onClick={this.handleFormSubmit} id="Search">
                   Search
-            </FormBtn>
+                </FormBtn>
               </div>
             </div>
           </div>

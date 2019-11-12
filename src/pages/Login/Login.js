@@ -4,22 +4,28 @@ import { Link } from "react-router-dom";
 import "./Login.css"
 
 class Login extends Component {
+
   state = {
     email: "",
     password: ""
   };
 
+  // setState when inputs recieve keystrokes
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
   };
+
+  // When form is submitted
   handleFormSubmit = event => {
     // event.preventDefault();
     alert(`Email: ${this.state.email} --- Password: ${this.state.password}`)
   };
 
+
+  // Render Page
   render() {
     return (
       <div className="loginbackground" >
@@ -41,10 +47,12 @@ class Login extends Component {
             />
             <Link to="/Signup"><button className="btn" id="Signup">Sign up</button></Link>
             <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Login">Login</button></Link>
+
             {/* <FormBtn
               onClick={this.handleFormSubmit} id="Login">
               Login
             </FormBtn> */}
+
           </div>
         </div>
       </div>

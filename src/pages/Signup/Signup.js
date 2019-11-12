@@ -6,6 +6,7 @@ import GenreForm from "../../components/Form/genre";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 
+
 class Signup extends React.Component {
 
     state = {
@@ -15,11 +16,15 @@ class Signup extends React.Component {
         username: "",
         password: "",
         location: "",
-        latLong: "",
         instruments: [],
-        genres: []
+        genres: [],
+
+        // Will be calculated by goog API
+        latLong: "",
     }
 
+
+    // setState when inputs recieve keystrokes
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -27,27 +32,33 @@ class Signup extends React.Component {
         });
     };
 
+    // When form is submitted
     handleFormSubmit = event => {
-
         // Geocode API 
         Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=`)
             .then(res => {
+
+                // Log whole response
                 const whole = res
                 console.log(whole)
+
+                // Latitude/Longitude
                 const latitude = res.data.results[0].geometry.location.lat;
                 const longitude = res.data.results[0].geometry.location.lng;
-                alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
                 // this.setState({ latLong })
+
+                // Alert results
+                alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
             })
+
+            // If err
             .catch(err => {
                 console.log(err);
             })
-
     };
 
 
-
-
+    // Render Page 
     render() {
         return (
             <div className="signupbackground" >
@@ -105,12 +116,16 @@ class Signup extends React.Component {
                             onChange={this.handleInputChange}
                             name="genres"
                         />
+
                         {/* <Dropdown /> */}
+
                         <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Signup">Sign up</button></Link>
+
                         {/* <FormBtn
                         onClick={this.handleFormSubmit} id="Login">
                         Login
                         </FormBtn> */}
+
                     </div>
                 </div>
                 <br />
