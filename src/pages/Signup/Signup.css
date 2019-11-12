@@ -35,3 +35,13 @@
 #Signup {
     background: #616161;
 }
+#yourinfo{
+    color: #a6fbfb;
+    font-family: 'Courgette', cursive;
+}
+#important{
+    color: red;
+    font-family: 'Courgette', cursive;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}

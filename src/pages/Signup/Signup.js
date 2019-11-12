@@ -6,11 +6,6 @@ import GenreForm from "../../components/Form/genre";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 
-
-// API CODE
-
-// AIzaSyBhef7w8QDnJeG0zyuIT_An9llVYqOXDv4
-
 class Signup extends React.Component {
 
     state = {
@@ -59,7 +54,7 @@ class Signup extends React.Component {
                 <div className="container">
                     <h1 className="signuptext">Sign up</h1>
                     <div className="signupbox">
-                        <h5>YOUR INFO</h5>
+                        <h5 id="yourinfo">YOUR INFO</h5>
                         <Input
                             value={this.state.firstname}
                             onChange={this.handleInputChange}
@@ -90,7 +85,7 @@ class Signup extends React.Component {
                             name="password"
                             placeholder="Password"
                         />
-                        <h5>*IMPORTANT*</h5>
+                        <h5 id="important">*IMPORTANT*</h5>
                         <Input
                             id="locationInput"
                             value={this.state.location}
