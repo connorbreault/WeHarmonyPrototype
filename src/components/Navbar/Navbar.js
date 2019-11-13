@@ -1,7 +1,9 @@
 import React from 'react';
 import M from 'materialize-css';
 import { SideNav, SideNavItem } from 'react-materialize';
-import pic from "../../images/Ad.jpg"
+import pic from "../../images/Ad.jpg";
+import { app } from 'firebase';
+// import app from "../../base.js";
 
 class Navbar extends React.Component {
 
@@ -54,6 +56,7 @@ class Navbar extends React.Component {
                         <ul id="navbar-links" className="right hide-on-med-and-down">
                             <li><a href="/Home" className="homeLink lnk">Home</a></li>
                             <li><a href="/Profile" className="profileLink lnk">My Profile</a></li>
+                            <li><a onClick={() => app.auth().signOut()} className="signOutLink lnk">Sign Out</a></li>
                         </ul>
                     </div>
                 </nav>
