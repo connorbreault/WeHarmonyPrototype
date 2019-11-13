@@ -1,24 +1,30 @@
-import React from "react";
-import firebase from 'firebase';
+import React, { useCallback } from "react";
+import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
+import Axios from "axios";
 import "./Signup.css";
 import { Input } from "../../components/Form";
 import InstrumentForm from "../../components/Form/instrument";
 import GenreForm from "../../components/Form/genre";
-import { Link } from "react-router-dom";
-import Axios from "axios";
+import app from "../../base.js";
 
+const Signup = ({ history }) => {
+    const handleSignup = useCallback(async event => {
+        event.preventDefault();
+        const { firstname, lastname, email, username, password,
+            location, instruments, genres } = event.target.elements;
+        try {
+            await app
+                .auth()
+                .createUser(firstname.value, lastname.value, email.value,
+                    username.value, password.value, location.value, instruments.value, genres.value);
+            history.push("/Home")
+        } catch (error) {
+            console.log(error);
+        }
+    }, [history]);
 
-
-// firebase.auth().createUser(firstName, lastName, email, username, password, city).catch(function (error) {
-//   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
-//   // ...
-// });
-
-class Signup extends React.Component {
-
-    state = {
+    const state = {
         firstname: "",
         lastname: "",
         email: "",
@@ -30,11 +36,10 @@ class Signup extends React.Component {
 
         // Will be calculated by goog API
         latLong: "",
-    }
-
+    };
 
     // setState when inputs recieve keystrokes
-    handleInputChange = event => {
+    const handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
@@ -42,7 +47,7 @@ class Signup extends React.Component {
     };
 
     // When form is submitted
-    handleFormSubmit = event => {
+    const handleFormSubmit = event => {
         // Geocode API 
         Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=`)
             .then(res => {
@@ -63,84 +68,82 @@ class Signup extends React.Component {
             // If err
             .catch(err => {
                 console.log(err);
-            })
+            });
     };
 
-
     // Render Page 
-    render() {
-        return (
-            <div className="signupbackground" >
-                <div className="container">
-                    <h1 className="signuptext">Sign up</h1>
-                    <div className="signupbox">
-                        <h5 id="yourinfo">YOUR INFO</h5>
-                        <Input
-                            value={this.state.firstname}
-                            onChange={this.handleInputChange}
-                            name="firstname"
-                            placeholder="First name"
-                        />
-                        <Input
-                            value={this.state.lastname}
-                            onChange={this.handleInputChange}
-                            name="lastname"
-                            placeholder="Last name"
-                        />
-                        <Input
-                            value={this.state.email}
-                            onChange={this.handleInputChange}
-                            name="email"
-                            placeholder="Email"
-                        />
-                        <Input
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            name="username"
-                            placeholder="Username"
-                        />
-                        <Input
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            name="password"
-                            placeholder="Password"
-                        />
-                        <h5 id="important">*IMPORTANT*</h5>
-                        <Input
-                            id="locationInput"
-                            value={this.state.location}
-                            onChange={this.handleInputChange}
-                            name="location"
-                            placeholder="Zip code"
-                        />
-                        <InstrumentForm
-                            className="signupFormResize"
-                            value={this.state.instruments}
-                            onChange={this.handleInputChange}
-                            name="instruments"
-                        />
-                        <GenreForm
-                            id="signupFormResize"
-                            value={this.state.genres}
-                            onChange={this.handleInputChange}
-                            name="genres"
-                        />
+    // render() {
+    return (
+        <div className="signupbackground" >
+            <div className="container">
+                <h1 className="signuptext">Sign up</h1>
+                <div className="signupbox">
+                    <h5 id="yourinfo">YOUR INFO</h5>
+                    <Input
+                        value={state.firstname.value}
+                        onChange={handleInputChange}
+                        name="firstname"
+                        placeholder="First name"
+                    />
+                    <Input
+                        value={state.lastname.value}
+                        onChange={handleInputChange}
+                        name="lastname"
+                        placeholder="Last name"
+                    />
+                    <Input
+                        value={state.email.value}
+                        onChange={handleInputChange}
+                        name="email"
+                        placeholder="Email"
+                    />
+                    <Input
+                        value={state.username.value}
+                        onChange={handleInputChange}
+                        name="username"
+                        placeholder="Username"
+                    />
+                    <Input
+                        value={state.password.value}
+                        onChange={handleInputChange}
+                        name="password"
+                        placeholder="Password"
+                    />
+                    <h5 id="important">*IMPORTANT*</h5>
+                    <Input
+                        id="locationInput"
+                        value={state.location.value}
+                        onChange={handleInputChange}
+                        name="location"
+                        placeholder="Zip code"
+                    />
+                    <InstrumentForm
+                        className="signupFormResize"
+                        value={state.instruments.value}
+                        onChange={handleInputChange}
+                        name="instruments"
+                    />
+                    <GenreForm
+                        id="signupFormResize"
+                        value={state.genres.value}
+                        onChange={handleInputChange}
+                        name="genres"
+                    />
 
-                        {/* <Dropdown /> */}
+                    {/* <Dropdown /> */}
 
-                        <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Signup">Sign up</button></Link>
+                    <Link to="/Home"><button onClick={handleSignup, handleFormSubmit} className="btn" id="Signup">Sign up</button></Link>
 
-                        {/* <FormBtn
-                        onClick={this.handleFormSubmit} id="Login">
-                        Login
-                        </FormBtn> */}
-
-                    </div>
+                    {/* <FormBtn
+                            onClick={this.handleFormSubmit} id="Login">
+                            Login
+                            </FormBtn> */}
                 </div>
-                <br />
             </div>
-        );
-    }
-}
+            <br />
+        </div>
+    );
+    // };
+};
 
-export default Signup;
+export default withRouter(Signup);

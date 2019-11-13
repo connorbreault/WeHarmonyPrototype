@@ -4,7 +4,9 @@ import Login from "./pages/Login/Login.js"
 import Home from "./pages/Home/Home.js";
 import Signup from "./pages/Signup/Signup.js";
 import Profile from "./pages/Profile/Profile.js";
-import Contact from "./pages/Contact/Contact.js"
+import Contact from "./pages/Contact/Contact.js";
+import { AuthProvider } from "./Auth.js";
+import PrivateRoute from "./PrivateRoute.js";
 
 // import Container from "./components/Container";
 
@@ -14,15 +16,17 @@ import Contact from "./pages/Contact/Contact.js"
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <Route exact path="/" component={Login} />
-        <Route exact path="/Home" component={Home} />
-        <Route exact path="/Signup" component={Signup} />
-        <Route exact path="/Profile" component={Profile} />
-        <Route exact path="/Contact" component={Contact} />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div>
+          <Route exact path="/" component={Login} />
+          <PrivateRoute exact path="/Home" component={Home} />
+          <Route exact path="/Signup" component={Signup} />
+          <PrivateRoute exact path="/Profile" component={Profile} />
+          <PrivateRoute exact path="/Contact" component={Contact} />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 
