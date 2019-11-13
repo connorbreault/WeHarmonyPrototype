@@ -2,8 +2,7 @@ import React from 'react';
 import M from 'materialize-css';
 import { SideNav, SideNavItem } from 'react-materialize';
 import pic from "../../images/Ad.jpg";
-import { app } from 'firebase';
-// import app from "../../base.js";
+import app from "../../base.js";
 
 class Navbar extends React.Component {
 

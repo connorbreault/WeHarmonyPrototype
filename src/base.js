@@ -1,6 +1,5 @@
-// import firebase from 'firebase';
-import firebase from "react-native-firebase";
-import "firebase/auth";
+import firebase from "firebase";
+import "./Auth";
 
 const config = {
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
