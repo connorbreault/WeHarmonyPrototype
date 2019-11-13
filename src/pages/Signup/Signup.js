@@ -72,7 +72,6 @@ const Signup = ({ history }) => {
     };
 
     // Render Page 
-    // render() {
     return (
         <div className="signupbackground" >
             <div className="container">
@@ -143,7 +142,6 @@ const Signup = ({ history }) => {
             <br />
         </div>
     );
-    // };
 };
 
 export default withRouter(Signup);

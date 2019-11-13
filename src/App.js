@@ -8,12 +8,6 @@ import Contact from "./pages/Contact/Contact.js";
 import { AuthProvider } from "./Auth.js";
 import PrivateRoute from "./PrivateRoute.js";
 
-// import Container from "./components/Container";
-
-// function App() {
-//   return <Container />;
-// }
-
 const App = () => {
   return (
     <AuthProvider>

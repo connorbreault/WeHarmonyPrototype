@@ -35,22 +35,14 @@ const Login = ({ history }) => {
   };
 
   // setState when inputs recieve keystrokes
-  // const handleInputChange = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-
-  // When form is submitted
-  // const handleFormSubmit = event => {
-  //   // event.preventDefault();
-  //   alert(`Email: ${this.state.email} --- Password: ${this.state.password}`)
-  // };
-
+  const handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
   // Render Page
-  // render() {
   return (
     <div className="loginbackground" >
       <div className="container">
@@ -59,13 +51,13 @@ const Login = ({ history }) => {
           <h1 className="logintext">Log in</h1>
           <Input
             value={state.email}
-            // onChange={handleInputChange}
+            onChange={handleInputChange}
             name="email"
             placeholder="email"
           />
           <Input
             value={state.password}
-            // onChange={handleInputChange}
+            onChange={handleInputChange}
             name="password"
             placeholder="password"
           />
@@ -76,11 +68,9 @@ const Login = ({ history }) => {
               onClick={this.handleFormSubmit} id="Login">
               Login
             </FormBtn> */}
-
         </div>
       </div>
     </div>
   );
-  // }
 };
 export default withRouter(Login);
