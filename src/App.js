@@ -14,8 +14,8 @@ const App = () => {
       <Router>
         <div>
           <Route exact path="/" component={Login} />
-          <PrivateRoute exact path="/Home" component={Home} />
           <Route exact path="/Signup" component={Signup} />
+          <PrivateRoute exact path="/Home" component={Home} />
           <PrivateRoute exact path="/Profile" component={Profile} />
           <PrivateRoute exact path="/Contact" component={Contact} />
         </div>
