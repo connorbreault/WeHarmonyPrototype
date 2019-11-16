@@ -5,7 +5,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { AuthContext, AuthProvider } from "../../Auth.js";
 
-
 class Profile extends Component {
   handleAuth = event => {
     const { currentUser } = useContext(AuthContext);
