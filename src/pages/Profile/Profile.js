@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 import "./Profile.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import { AuthContext, AuthProvider } from "../../Auth.js";
+import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
 
 class Profile extends Component {
   handleAuth = event => {
@@ -22,25 +22,29 @@ class Profile extends Component {
   // Render Page 
   render() {
     return (
-      <AuthProvider>
-        <div className="profilebackground" >
-          <Navbar />
-          <main>
-            <div className="Picandname container">
-              <div className="row"></div>
-              <div className="col-6">
-                <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
-              </div>
-              <div className="col-6">
-                <p className="Profilename">(props.name)'s Profile</p>
+      <div>
+        <AuthConsumer>
+          {context => (
+            <div className="profilebackground" >
+              <Navbar />
+              <main>
+                <div className="Picandname container">
+                  <div className="row"></div>
+                  <div className="col-6">
+                    <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
+                  </div>
+                  <div className="col-6">
+                    <p className="Profilename">(props.name)'s Profile</p>
+                  </div>
+                </div>
+              </main>
+              <div>
+                <Footer />
               </div>
             </div>
-          </main>
-          <div>
-            <Footer />
-          </div>
-        </div>
-      </AuthProvider>
+          )}
+        </AuthConsumer>
+      </div>
     );
   }
 }

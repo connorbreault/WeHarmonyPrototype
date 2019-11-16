@@ -1,6 +1,27 @@
 import React, { useState, useEffect } from "react";
 import app from "./base.js";
 
+export const AuthContext = React.createContext();
+
+export const AuthProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState(null);
+    useEffect(() => {
+        app.auth().onAuthStateChanged(setCurrentUser);
+    }, []);
+
+    return (
+        <AuthContext.Provider
+            value={{
+                currentUser
+            }}
+        >
+            {children}
+        </AuthContext.Provider>
+    );
+};
+
+export const AuthConsumer = AuthContext.Consumer;
+
 // const AuthContext = React.createContext();
 
 // class AuthProvider extends React.Component {
@@ -38,21 +59,3 @@ import app from "./base.js";
 // const AuthConsumer = AuthContext.Consumer;
 
 // export { AuthProvider, AuthConsumer }
-export const AuthContext = React.createContext();
-
-export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null);
-    useEffect(() => {
-        app.auth().onAuthStateChanged(setCurrentUser);
-    }, []);
-
-    return (
-        <AuthContext.Provider
-            value={{
-                currentUser
-            }}
-        >
-            {children}
-        </AuthContext.Provider>
-    );
-};
