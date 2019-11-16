@@ -5,9 +5,9 @@ class InstrumentForm extends React.Component {
         return (
 
             <div className="input-field col s12">
-                <Select multiple defaultValue={['']} onChange={actionHandler}>
-                    <option value="">
-                        My talents...
+                <Select defaultValue='' onChange={actionHandler}>
+                    <option value="" disabled>
+                        My talent...
                     </option>
                     <option value="Guitar">
                         Guitar

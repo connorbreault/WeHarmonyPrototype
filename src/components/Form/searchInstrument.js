@@ -1,12 +1,13 @@
 import React from 'react';
 import { Select, actionHandler } from 'react-materialize';
+
 class searchInstrument extends React.Component {
     render() {
         return (
 
             <div className="input-field col s12">
                 <Select defaultValue="" onChange={actionHandler}>
-                    <option value="">
+                    <option value="" disabled>
                         Select desired musician
                     </option>
                     <option value="Guitar">

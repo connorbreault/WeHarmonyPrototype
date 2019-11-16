@@ -1,10 +1,11 @@
 import React from "react";
 import "./Signup.css";
 import { Input } from "../../components/Form";
-import InstrumentForm from "../../components/Form/instrument";
-import GenreForm from "../../components/Form/genre";
+// import InstrumentForm from "../../components/Form/instrument";
+// import GenreForm from "../../components/Form/genre";
 import { Link } from "react-router-dom";
 import Axios from "axios";
+import { Select } from 'react-materialize';
 
 
 class Signup extends React.Component {
@@ -18,8 +19,6 @@ class Signup extends React.Component {
         location: "",
         instruments: [],
         genres: [],
-
-        // Will be calculated by goog API
         latLong: "",
     }
 
@@ -34,27 +33,31 @@ class Signup extends React.Component {
 
     // When form is submitted
     handleFormSubmit = event => {
-        // Geocode API 
-        Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=`)
-            .then(res => {
+        if (this.state.firstname === "" || this.state.lastname === "" || this.state.email === "" || this.state.username === "" || this.state.password === "" || this.state.location === "" || this.state.instruments === "" || this.state.genres === "") {
+            alert("Please fill out all inputs!")
+        } else {
+            // Geocode API 
+            Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=AIzaSyBhef7w8QDnJeG0zyuIT_An9llVYqOXDv4`)
+                .then(res => {
 
-                // Log whole response
-                const whole = res
-                console.log(whole)
+                    // Log whole response
+                    const whole = res
+                    console.log(whole)
 
-                // Latitude/Longitude
-                const latitude = res.data.results[0].geometry.location.lat;
-                const longitude = res.data.results[0].geometry.location.lng;
-                // this.setState({ latLong })
+                    // Latitude/Longitude
+                    const latitude = res.data.results[0].geometry.location.lat;
+                    const longitude = res.data.results[0].geometry.location.lng;
+                    // this.setState({ latLong })
 
-                // Alert results
-                alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
-            })
+                    // Alert results
+                    alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
+                })
 
-            // If err
-            .catch(err => {
-                console.log(err);
-            })
+                // If err
+                .catch(err => {
+                    console.log(err);
+                })
+        }
     };
 
 
@@ -104,18 +107,78 @@ class Signup extends React.Component {
                             name="location"
                             placeholder="Zip code"
                         />
-                        <InstrumentForm
+                        {/*<InstrumentForm
                             className="signupFormResize"
                             value={this.state.instruments}
                             onChange={this.handleInputChange}
                             name="instruments"
                         />
-                        <GenreForm
+                         <GenreForm
                             id="signupFormResize"
                             value={this.state.genres}
                             onChange={this.handleInputChange}
                             name="genres"
-                        />
+                        /> */}
+
+                        {/* INSTRUMENT INPUT */}
+                        <Select name="instruments" defaultValue='' onChange={this.handleInputChange}>
+                            <option value="" disabled>
+                                My talent...
+                        </option>
+                            <option value="Guitar">
+                                Guitar
+                        </option>
+                            <option value="Bass">
+                                Bass
+                        </option>
+                            <option value="Drums">
+                                Drums
+                        </option>
+                            <option value="Singer">
+                                Singer
+                        </option>
+                            <option value="Piano">
+                                Piano
+                        </option>
+                            <option value="Violin">
+                                Violin
+                        </option>
+                            <option value="Flute">
+                                Flute
+                        </option>
+                            <option value="Saxophone">
+                                Saxophone
+                        </option>
+                        </Select>
+
+
+                        {/* GENRE INPUT */}
+                        <Select name="genres" defaultValue='' onChange={this.handleInputChange}>
+                            <option value="" disabled>
+                                My style...
+                        </option>
+                            <option value="Rock">
+                                Rock
+                        </option>
+                            <option value="Blues">
+                                Blues
+                        </option>
+                            <option value="Indie">
+                                Indie
+                        </option>
+                            <option value="Metal">
+                                Metal
+                        </option>
+                            <option value="Pop">
+                                Pop
+                        </option>
+                            <option value="Rap">
+                                Rap
+                        </option>
+                            <option value="Alternative">
+                                Alternative
+                        </option>
+                        </Select>
 
                         {/* <Dropdown /> */}
 

@@ -31,7 +31,7 @@ class searchGenre extends React.Component {
                         Alternative
                     </option>
                 </Select>
-            </div>
+            </div >
         )
     }
 }

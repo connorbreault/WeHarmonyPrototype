@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Profile.css";
+import { Row, Col } from 'react-materialize';
+import { FormBtn } from "../../components/Form";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
@@ -21,12 +23,7 @@ class Profile extends Component {
 
   // When form is submitted
   handleFormSubmit = event => {
-    if (this.state.username.length > 0 && this.state.password > 0) {
-      console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
-    } else {
-      // event.preventDefault()
-      // alert("Fill out the form please")
-    }
+    alert("add message logic ya dingus")
   };
 
 
@@ -36,13 +33,31 @@ class Profile extends Component {
       <div className="profilebackground" >
         <Navbar />
         <main>
-          <div className="Picandname container">
-            <div className="row"></div>
-            <div className="col-6">
-              <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
+          <div className="Picandname">
+            <Row id="userInfoContainer">
+              <Col s={4}>
+                <img className="Profilepic" alt="" src={require("../../images/PlaceholderProfilePic.jpg")} />
+              </Col>
+              <Col s={6} id="userInfoText">
+                <p className="Profilename">Name</p>
+                <p className="Profilebio"> Super sick bio dude </p>
+              </Col>
+            </Row>
+            <div id="messageButton">
+              <FormBtn
+                onClick={this.handleFormSubmit} id="Message">
+                Message
+            </FormBtn>
             </div>
-            <div className="col-6">
-              <p className="Profilename">(props.name)'s Profile</p>
+            <div id="vidContainer">
+              <div>
+                <h3 id="myVideosText">My Videos</h3>
+              </div>
+              <div id="userVideos">
+                <img className="video" alt="" src={require("../../images/vidPlaceholder.png")} />
+                <img className="video" alt="" src={require("../../images/vidPlaceholder.png")} />
+                <img className="video" alt="" src={require("../../images/vidPlaceholder.png")} />
+              </div>
             </div>
           </div>
         </main>

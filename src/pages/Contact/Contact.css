@@ -1,14 +1,13 @@
 .contactbackground{
     background: url("../../images/ContactBG.jpg") no-repeat; 
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
-    background-attachment: unset;
     min-width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    height: 100vh;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 main {
     flex: 1 0 auto;
