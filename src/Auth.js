@@ -1,61 +1,67 @@
-import React, { useState, useEffect } from "react";
-import app from "./base.js";
+// import React, { useState, useEffect } from "react";
+// import Login from "./pages/Login/Login.js";
+// import app from "./base.js";
 
-export const AuthContext = React.createContext();
+// export const AuthContext = React.createContext();
 
-export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null);
-    useEffect(() => {
-        app.auth().onAuthStateChanged(setCurrentUser);
-    }, []);
+// export const AuthProvider = ({ children }) => {
+//     const [currentUser, setCurrentUser] = useState(null);
 
-    return (
-        <AuthContext.Provider
-            value={{
-                currentUser
-            }}
-        >
-            {children}
-        </AuthContext.Provider>
-    );
-};
+//     useEffect(() => {
+//         app.auth().onAuthStateChanged(setCurrentUser);
+//     }, []);
 
-export const AuthConsumer = AuthContext.Consumer;
+//     return (
+//         <AuthContext.Provider
+//             value={{
+//                 currentUser
+//             }}
+//         >
+//             {children}
+//         </AuthContext.Provider>
+//     );
+// };
 
-// const AuthContext = React.createContext();
+// export const AuthConsumer = AuthContext.Consumer;
 
-// class AuthProvider extends React.Component {
-//     state = {
-//         isAuth: false
-//     }
+import React from "react";
 
-//     // constructor() {
-//     //     super()
-//     //     this.login = this.login.bind(this)
-//     //     this.signOut = this.logout.bind(this)
-//     // }
+const AuthContext = React.createContext();
 
-//     login() {
-//         this.setState({ isAuth: true })
-//     }
+class AuthProvider extends React.Component {
+    state = {
+        currentUser: false
+    }
 
-//     signOut() {
-//         this.setState({ isAuth: false })
-//     }
+    constructor() {
+        super()
+        this.login = this.login.bind(this)
+        this.signOut = this.signOut.bind(this)
+    }
 
-//     render() {
-//         return (
-//             <AuthContext.Provider
-//                 value={{
-//                     state: this.state
-//                 }}>
-//                 {this.props.children}
-//             </AuthContext.Provider>
+    login() {
+        this.setState({ currentUser: true })
+        // app.auth().signInWithEmailAndPassword();
+    }
 
-//         )
-//     }
-// }
+    signOut() {
+        // app.auth().signOut()
+        this.setState({ currentUser: false })
+    }
 
-// const AuthConsumer = AuthContext.Consumer;
+    render() {
+        return (
+            <AuthContext.Provider
+                value={{
+                    state: this.state
+                }}>
+                {this.props.children}
+            </AuthContext.Provider>
 
-// export { AuthProvider, AuthConsumer }
+        )
+    }
+}
+
+const AuthConsumer = AuthContext.Consumer;
+
+export { AuthProvider, AuthConsumer }
