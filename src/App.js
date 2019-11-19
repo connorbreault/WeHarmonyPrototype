@@ -16,8 +16,8 @@ const App = () => {
           <Route exact path="/" component={Login} />
           <Route exact path="/Signup" component={Signup} />
           <PrivateRoute exact path="/Home" component={Home} />
-          <PrivateRoute exact path="/Profile" component={Profile} />
-          <PrivateRoute exact path="/Contact" component={Contact} />
+          <Route exact path="/Profile" component={Profile} />
+          <Route exact path="/Contact" component={Contact} />
         </div>
       </Router>
     </AuthProvider>
