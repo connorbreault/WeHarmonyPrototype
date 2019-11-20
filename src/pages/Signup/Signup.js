@@ -56,17 +56,16 @@ class Signup extends React.Component {
             Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=AIzaSyBhef7w8QDnJeG0zyuIT_An9llVYqOXDv4`)
                 .then(res => {
 
-                    // Log whole response
-                    const whole = res
-                    console.log(whole)
-
                     // Latitude/Longitude
                     const latitude = res.data.results[0].geometry.location.lat;
                     const longitude = res.data.results[0].geometry.location.lng;
-                    // this.setState({ latitude })
+
+
+                    console.log(`LATLONG:  ${latitude} ${longitude} `)
+                    this.setState({ latitude, longitude })
 
                     // Alert results
-                    alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
+                    //alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
                 })
 
                 // If err
@@ -168,7 +167,7 @@ class Signup extends React.Component {
 
                         {/* <Dropdown /> */}
 
-                        <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Signup">Sign up</button></Link>
+                        <button onClick={this.handleFormSubmit} className="btn" id="Signup">Sign up</button>
 
                         {/* <FormBtn
                         onClick={this.handleFormSubmit} id="Login">

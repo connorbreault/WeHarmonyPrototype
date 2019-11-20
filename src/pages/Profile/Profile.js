@@ -40,7 +40,7 @@ class Profile extends Component {
           <div className="Picandname">
             <Row id="userInfoContainer">
               <Col s={4}>
-                <img className="Profilepic" alt="" src={require("../../images/PlaceholderProfilePic.jpg")} />
+                <img className="Profilepic" alt="" src={"./PlaceholderProfilePic.jpg"} />
               </Col>
               <Col s={6} id="userInfoText">
                 <p className="Profilename">Name</p>
