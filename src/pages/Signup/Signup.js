@@ -19,7 +19,8 @@ class Signup extends React.Component {
         location: "",
         instruments: [],
         genres: [],
-        latLong: "",
+        latitude: "",
+        longitude: ""
     }
 
 
@@ -47,7 +48,7 @@ class Signup extends React.Component {
                     // Latitude/Longitude
                     const latitude = res.data.results[0].geometry.location.lat;
                     const longitude = res.data.results[0].geometry.location.lng;
-                    // this.setState({ latLong })
+                    // this.setState({ latitude })
 
                     // Alert results
                     alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
@@ -69,44 +70,14 @@ class Signup extends React.Component {
                     <h1 className="signuptext">Sign up</h1>
                     <div className="signupbox">
                         <h5 id="yourinfo">YOUR INFO</h5>
-                        <Input
-                            value={this.state.firstname}
-                            onChange={this.handleInputChange}
-                            name="firstname"
-                            placeholder="First name"
-                        />
-                        <Input
-                            value={this.state.lastname}
-                            onChange={this.handleInputChange}
-                            name="lastname"
-                            placeholder="Last name"
-                        />
-                        <Input
-                            value={this.state.email}
-                            onChange={this.handleInputChange}
-                            name="email"
-                            placeholder="Email"
-                        />
-                        <Input
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            name="username"
-                            placeholder="Username"
-                        />
-                        <Input
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            name="password"
-                            placeholder="Password"
-                        />
+                        <Input value={this.state.firstname} onChange={this.handleInputChange} name="firstname" placeholder="First name" />
+                        <Input value={this.state.lastname} onChange={this.handleInputChange} name="lastname" placeholder="Last name" />
+                        <Input value={this.state.email} onChange={this.handleInputChange} name="email" placeholder="Email" />
+                        <Input value={this.state.username} onChange={this.handleInputChange} name="username" placeholder="Username" />
+                        <Input value={this.state.password} onChange={this.handleInputChange} name="password" placeholder="Password" />
                         <h5 id="important">*IMPORTANT*</h5>
-                        <Input
-                            id="locationInput"
-                            value={this.state.location}
-                            onChange={this.handleInputChange}
-                            name="location"
-                            placeholder="Zip code"
-                        />
+
+                        <Input id="locationInput" value={this.state.location} onChange={this.handleInputChange} name="location" placeholder="Zip code" />
                         {/*<InstrumentForm
                             className="signupFormResize"
                             value={this.state.instruments}

@@ -54,9 +54,9 @@ class Profile extends Component {
                 <h3 id="myVideosText">My Videos</h3>
               </div>
               <div id="userVideos">
-                <img className="video" alt="" src={require("../../images/vidPlaceholder.png")} />
-                <img className="video" alt="" src={require("../../images/vidPlaceholder.png")} />
-                <img className="video" alt="" src={require("../../images/vidPlaceholder.png")} />
+                <img className="video" alt="" src={"./vidPlaceholder.png"} />
+                <img className="video" alt="" src={"./vidPlaceholder.png"} />
+                <img className="video" alt="" src={"./vidPlaceholder.png"} />
               </div>
             </div>
           </div>

@@ -76,6 +76,18 @@ main {
 }
 
 
+/* RESULTS SECTION */
+#searchResultsContainer{
+    background: gray;
+    padding: 10px;
+    margin: 15px auto;
+    border-radius: 20px;
+}
+.resultUsername{
+    font-size: 25px
+}
+
+
 /* - Media Queries - */
 /* =========== Over 374px ========== */
 @media only screen and ( min-width: 374px ) {
