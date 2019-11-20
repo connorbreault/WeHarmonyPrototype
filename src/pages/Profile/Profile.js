@@ -1,34 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, useCallback, useContext } from "react";
+import { Redirect } from "react-router";
 import "./Profile.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
 
 class Profile extends Component {
+  // handleAuth = event => {
+  //   const { currentUser } = useContext(AuthContext);
 
-  state = {
-    username: "",
-    password: ""
-  };
-
-
-  // setState when inputs recieve keystrokes
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  // When form is submitted
-  handleFormSubmit = event => {
-    if (this.state.username.length > 0 && this.state.password > 0) {
-      console.log(`Name: ${this.state.username} --- Password: ${this.state.password}`)
-    } else {
-      // event.preventDefault()
-      // alert("Fill out the form please")
-    }
-  };
-
+  //   if (currentUser) {
+  //     return <Redirect to="/Profile" />;
+  //   }
+  // };
 
   // Render Page 
   render() {
@@ -53,4 +37,5 @@ class Profile extends Component {
     );
   }
 }
+
 export default Profile;

@@ -1,4 +1,4 @@
-import React, { Component, useCallback, useContext } from "react";
+import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "../../base.js";
 import { AuthContext } from "../../Auth.js";
@@ -29,18 +29,18 @@ const Login = ({ history }) => {
     return <Redirect to="/Home" />;
   }
 
-  const state = {
-    email: "",
-    password: ""
-  };
+  // const state = {
+  //   email: "",
+  //   password: ""
+  // };
 
   // setState when inputs recieve keystrokes
-  const handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
+  // const handleInputChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   // Render Page
   return (
@@ -49,25 +49,24 @@ const Login = ({ history }) => {
         <h1 className="logo">WeHarmony</h1>
         <div className="loginbox">
           <h1 className="logintext">Log in</h1>
-          <Input
-            value={state.email}
-            onChange={handleInputChange}
-            name="email"
-            placeholder="email"
-          />
-          <Input
-            value={state.password}
-            onChange={handleInputChange}
-            name="password"
-            placeholder="password"
-          />
-          <Link to="/Signup"><button className="btn" id="Signup">Sign up</button></Link>
-          <Link><button onClick={handleLogin} className="btn" id="Login">Login</button></Link>
-
-          {/* <FormBtn
-              onClick={this.handleFormSubmit} id="Login">
-              Login
-            </FormBtn> */}
+          <form onSubmit={handleLogin}>
+            <label>
+              <Input
+                name="email"
+                placeholder="email"
+                type="email"
+              />
+            </label>
+            <label>
+              <Input
+                name="password"
+                placeholder="password"
+                type="password"
+              />
+            </label>
+            <Link to={`/Signup`} ><button className="btn" id="Signup">Sign up</button></Link>
+            <button type="submit" className="btn" id="Login">Login</button>
+          </form>
         </div>
       </div>
     </div>
