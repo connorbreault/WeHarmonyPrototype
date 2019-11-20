@@ -10,6 +10,21 @@ import { Select } from 'react-materialize';
 
 class Signup extends React.Component {
 
+    //     const handleSignup = useCallback(async event => {
+    //         event.preventDefault();
+    //         const { firstname, lastname, email, username, password,
+    //             location, instruments, genres } = event.target.elements;
+    //         try {
+    //             await app
+    //                 .auth()
+    //                 .createUser(firstname.value, lastname.value, email.value,
+    //                     username.value, password.value, location.value, instruments.value, genres.value);
+    //             history.push("/Home")
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }, [history]);
+
     state = {
         firstname: "",
         lastname: "",

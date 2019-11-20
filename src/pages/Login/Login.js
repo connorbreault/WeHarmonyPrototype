@@ -1,62 +1,75 @@
-import React, { Component } from "react";
+import React, { useCallback, useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import app from "../../base.js";
+import { AuthContext } from "../../Auth.js";
 import { Input } from "../../components/Form";
 import { Link } from "react-router-dom";
 import "./Login.css"
 
-class Login extends Component {
+const Login = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await app
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        alert(`You're logged in!`)
+        history.push("/Home");
+      } catch (error) {
+        console.log(error);
+      }
+    }, [history],
+  );
 
-  state = {
-    email: "",
-    password: ""
-  };
+  const { currentUser } = useContext(AuthContext);
+
+  if (currentUser) {
+    return <Redirect to="/Home" />;
+  }
+
+  // const state = {
+  //   email: "",
+  //   password: ""
+  // };
 
   // setState when inputs recieve keystrokes
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  // When form is submitted
-  handleFormSubmit = event => {
-    // event.preventDefault();
-    alert(`Email: ${this.state.email} --- Password: ${this.state.password}`)
-  };
-
+  // const handleInputChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   // Render Page
-  render() {
-    return (
-      <div className="loginbackground" >
-        <div className="container">
-          <h1 className="logo">WeHarmony</h1>
-          <div className="loginbox">
-            <h1 className="logintext">Log in</h1>
-            <Input
-              value={this.state.email}
-              onChange={this.handleInputChange}
-              name="email"
-              placeholder="email"
-            />
-            <Input
-              value={this.state.password}
-              onChange={this.handleInputChange}
-              name="password"
-              placeholder="password"
-            />
-            <Link to="/Signup"><button className="btn" id="Signup">Sign up</button></Link>
-            <Link to="/Home"><button onClick={this.handleFormSubmit} className="btn" id="Login">Login</button></Link>
-
-            {/* <FormBtn
-              onClick={this.handleFormSubmit} id="Login">
-              Login
-            </FormBtn> */}
-
-          </div>
+  return (
+    <div className="loginbackground" >
+      <div className="container">
+        <h1 className="logo">WeHarmony</h1>
+        <div className="loginbox">
+          <h1 className="logintext">Log in</h1>
+          <form onSubmit={handleLogin}>
+            <label>
+              <Input
+                name="email"
+                placeholder="email"
+                type="email"
+              />
+            </label>
+            <label>
+              <Input
+                name="password"
+                placeholder="password"
+                type="password"
+              />
+            </label>
+            <Link to={`/Signup`} ><button className="btn" id="Signup">Sign up</button></Link>
+            <button type="submit" className="btn" id="Login">Login</button>
+          </form>
         </div>
       </div>
-    );
-  }
-}
-export default Login;
+    </div>
+  );
+};
+export default withRouter(Login);
