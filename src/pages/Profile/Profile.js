@@ -1,6 +1,8 @@
 import React, { Component, useCallback, useContext } from "react";
 import { Redirect } from "react-router";
 import "./Profile.css";
+import { Row, Col } from 'react-materialize';
+import { FormBtn } from "../../components/Form";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
@@ -9,10 +11,25 @@ class Profile extends Component {
   // handleAuth = event => {
   //   const { currentUser } = useContext(AuthContext);
 
-  //   if (currentUser) {
-  //     return <Redirect to="/Profile" />;
-  //   }
-  // };
+  state = {
+    username: "",
+    password: ""
+  };
+
+
+  // setState when inputs recieve keystrokes
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  // When form is submitted
+  handleFormSubmit = event => {
+    alert("add message logic ya dingus")
+  };
+
 
   // Render Page 
   render() {
@@ -20,13 +37,31 @@ class Profile extends Component {
       <div className="profilebackground" >
         <Navbar />
         <main>
-          <div className="Picandname container">
-            <div className="row"></div>
-            <div className="col-6">
-              <img className="Profilepic" alt="" src="../../images/placeholder.png"></img>
+          <div className="Picandname">
+            <Row id="userInfoContainer">
+              <Col s={4}>
+                <img className="Profilepic" alt="" src={require("../../images/PlaceholderProfilePic.jpg")} />
+              </Col>
+              <Col s={6} id="userInfoText">
+                <p className="Profilename">Name</p>
+                <p className="Profilebio"> Super sick bio dude </p>
+              </Col>
+            </Row>
+            <div id="messageButton">
+              <FormBtn
+                onClick={this.handleFormSubmit} id="Message">
+                Message
+            </FormBtn>
             </div>
-            <div className="col-6">
-              <p className="Profilename">(props.name)'s Profile</p>
+            <div id="vidContainer">
+              <div>
+                <h3 id="myVideosText">My Videos</h3>
+              </div>
+              <div id="userVideos">
+                <img className="video" alt="" src={"./vidPlaceholder.png"} />
+                <img className="video" alt="" src={"./vidPlaceholder.png"} />
+                <img className="video" alt="" src={"./vidPlaceholder.png"} />
+              </div>
             </div>
           </div>
         </main>
