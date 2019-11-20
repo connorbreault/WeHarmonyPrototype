@@ -7,7 +7,9 @@ import Profile from "./pages/Profile/Profile.js";
 import Contact from "./pages/Contact/Contact.js";
 import { AuthProvider } from "./Auth.js";
 import PrivateRoute from "./PrivateRoute.js";
-require('dotenv').load();
+import dotenv from 'dotenv';
+
+dotenv.config()
 
 class App extends Component {
   render() {
