@@ -168,7 +168,7 @@ class Signup extends React.Component {
                     {this.state.showDiv ?
                         <div id="thanksSignup">
                             <h2>Thanks for signing up!</h2>
-                            <button onClick={this.handleReturnButton} className="btn" id="returnToLogin">Return to login</button>
+                            <Link to="/Home"><button href="/" onClick={this.handleReturnButton} className="btn" id="returnToLogin">Return to login</button></Link>
                         </div>
                         : null}
 

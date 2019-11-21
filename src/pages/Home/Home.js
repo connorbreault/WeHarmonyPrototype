@@ -11,7 +11,27 @@ const fauxDB = [
     firstname: "Sacramento",
     lastname: "Drummer",
     email: "placeholder@somewhere.com",
-    username: "SacramentoDrummer",
+    username: "SacDrummerINDIE",
+    password: "1234",
+    location: "Sacramento",
+    instruments: "Drums",
+    genres: "Indie",
+    latitude: 38.5963157,
+    longitude: -121.4399041,
+    profilePic: "./PlaceholderProfilePic.jpg",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    videos: [
+      "./vidPlaceholder.png",
+      "./vidPlaceholder.png",
+      "./vidPlaceholder.png",
+    ],
+    id: 1
+  },
+  {
+    firstname: "Sacramento",
+    lastname: "Drummer",
+    email: "placeholder@somewhere.com",
+    username: "SacDrummerMETAL",
     password: "1234",
     location: "Sacramento",
     instruments: "Drums",
@@ -95,7 +115,10 @@ class Login extends Component {
     currentResultIndex: 0,
     fauxDB,
     fauxAPIreturn: [],
-    showDiv: false
+    showDiv: false,
+    noMatches: false,
+    noMoreMatches: false,
+    showResults: true
   };
 
 
@@ -110,17 +133,16 @@ class Login extends Component {
   // INITIAL SEARCH
   handleFormSubmit = event => {
     // Show divs
-    this.setState(({ showDiv: true }));
-    console.log(this.state.showDiv)
+    this.setState(({ showDiv: true, showResults: true }));
 
     // SEARCH LOGIC
     let matches = []
     for (var i = 0; i < this.state.fauxDB.length; i++) {
-      if (this.state.fauxDB[i].instruments === this.state.selectedInstrument) {
+      if (this.state.fauxDB[i].instruments === this.state.selectedInstrument && this.state.fauxDB[i].genres === this.state.selectedGenre) {
         let latitudeDif = (Math.abs(this.state.fauxDB[i].latitude) - 38.5)
         let longitudeDif = (Math.abs(this.state.fauxDB[i].longitude) - 121.4)
 
-        if (latitudeDif < 0.5 && longitudeDif < 0.5 && latitudeDif > -0.5 && longitudeDif > -0.5) {
+        if (latitudeDif < 0.3 && longitudeDif < 0.3 && latitudeDif > -0.3 && longitudeDif > -0.3) {
           let match = this.state.fauxDB[i]
           console.log(`Match: ${match.username} === LatDif: ${latitudeDif} & LongDif: ${longitudeDif}`)
           matches.push(match)
@@ -130,9 +152,14 @@ class Login extends Component {
     }
     console.log(`API RETURN: ${this.state.fauxAPIreturn}`)
 
+
     // SET RESULTS
-    this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
-    this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
+    if (fauxDB[this.state.currentResultIndex] === undefined) {
+      this.setState(({ noMatches: true }));
+    } else {
+      this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
+      this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
+    }
   };
 
 
@@ -148,14 +175,21 @@ class Login extends Component {
 
   // NEXT REQUEST
   handleNextRequest = event => {
-    this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
-    //console.log(this.state.currentResultIndex)
-    //console.log(fauxDB[this.state.currentResultIndex])
-    this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
+    if (fauxDB[this.state.currentResultIndex] === undefined) {
+      this.setState(({ noMoreMatches: true }));
+      this.setState(({ showResults: false }));
+    } else {
+      this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
+      //console.log(this.state.currentResultIndex)
+      //console.log(fauxDB[this.state.currentResultIndex])
+      this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
+    }
   };
 
   handleNewSearch = event => {
     this.setState(({ showDiv: false }));
+    this.setState(({ noMatches: false }));
+    this.setState(({ noMoreMatches: false }));
     this.setState(({ currentResultIndex: 0 }));
   }
 
@@ -189,8 +223,26 @@ class Login extends Component {
               </div>
             }
 
+            {this.state.noMatches ?
+              <div id="searchResultsContainer">
+                <h3 id="resultsText">Results</h3>
+                <div id="currentResult">
+                  <h4>No users match your request 😥</h4>
+                </div>
+              </div>
+              : null}
 
-            {this.state.showDiv ?
+            {this.state.noMoreMatches ?
+              <div id="searchResultsContainer">
+                <h3 id="resultsText">Results</h3>
+                <div id="currentResult">
+                  <h4>There are no more users matching your request...</h4>
+                </div>
+                <button onClick={this.handleNewSearch} id="noMoreResultNewSearch" className="btn">New Search</button>
+              </div>
+              : null}
+
+            {this.state.showDiv && this.state.showResults ?
               <div id="searchResultsContainer">
                 <h3 id="resultsText">Results</h3>
 
@@ -223,7 +275,7 @@ class Login extends Component {
                 </div>
               </div>
               : null}
-            {this.state.showDiv ?
+            {this.state.showDiv && this.state.showResults ?
               <div>
                 <button onClick={this.handleNewSearch} id="newSearch" className="btn">New Search</button>
               </div>

@@ -157,6 +157,16 @@ main {
     color: #26a69a;
     background: #d7d7d7
 }
+#noMoreResultNewSearch{
+    margin: 5px auto 20px auto;
+    background: #6c6c6c;
+    font-family: 'Patrick Hand', cursive;
+    border: 1px solid #26a69a;
+}
+#noMoreResultNewSearch:hover{
+    color: #26a69a;
+    background: #d7d7d7
+}
 
 
 /* - Media Queries - */
