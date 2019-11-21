@@ -16,8 +16,28 @@ const fauxDB = [
     location: "Sacramento",
     instruments: "Drums",
     genres: "Metal",
-    latitude: "38.5963157",
-    longitude: "121.4399041",
+    latitude: 38.5963157,
+    longitude: -121.4399041,
+    profilePic: "./PlaceholderProfilePic.jpg",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    videos: [
+      "./vidPlaceholder.png",
+      "./vidPlaceholder.png",
+      "./vidPlaceholder.png",
+    ],
+    id: 1
+  },
+  {
+    firstname: "Reno",
+    lastname: "Drummer",
+    email: "placeholder@somewhere.com",
+    username: "RenoDrummer",
+    password: "1234",
+    location: "Reno",
+    instruments: "Drums",
+    genres: "Metal",
+    latitude: 39.6028659,
+    longitude: -119.7773461,
     profilePic: "./PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
@@ -36,8 +56,8 @@ const fauxDB = [
     location: "Sacramento",
     instruments: "Guitar",
     genres: "Metal",
-    latitude: "38.5963157",
-    longitude: "121.4399041",
+    latitude: 38.5963157,
+    longitude: -121.4399041,
     profilePic: "./PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
@@ -54,8 +74,8 @@ const fauxDB = [
     location: "Sacramento",
     instruments: "Bass",
     genres: "Metal",
-    latitude: "38.5963157",
-    longitude: "121.4399041",
+    latitude: 38.5963157,
+    longitude: -121.4399041,
     profilePic: "./images/PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
@@ -74,7 +94,8 @@ class Login extends Component {
     currentResult: "",
     currentResultIndex: 0,
     fauxDB,
-    fauxAPIreturn: []
+    fauxAPIreturn: [],
+    showDiv: false
   };
 
 
@@ -88,22 +109,26 @@ class Login extends Component {
 
   // INITIAL SEARCH
   handleFormSubmit = event => {
+    // Show divs
+    this.setState(({ showDiv: true }));
+    console.log(this.state.showDiv)
+
     // SEARCH LOGIC
+    let matches = []
     for (var i = 0; i < this.state.fauxDB.length; i++) {
-      console.log(`SEARCH: ${this.state.selectedInstrument}`)
-      console.log(this.state.fauxDB[i].instruments)
       if (this.state.fauxDB[i].instruments === this.state.selectedInstrument) {
-        let match = this.state.fauxDB[i]
-        console.log(match)
-        this.setState(() => ({ fauxAPIreturn: match }));
-        console.log(`PUSHED TO API`)
+        let latitudeDif = (Math.abs(this.state.fauxDB[i].latitude) - 38.5)
+        let longitudeDif = (Math.abs(this.state.fauxDB[i].longitude) - 121.4)
+
+        if (latitudeDif < 0.5 && longitudeDif < 0.5 && latitudeDif > -0.5 && longitudeDif > -0.5) {
+          let match = this.state.fauxDB[i]
+          console.log(`Match: ${match.username} === LatDif: ${latitudeDif} & LongDif: ${longitudeDif}`)
+          matches.push(match)
+          this.setState(({ fauxAPIreturn: matches }));
+        }
       }
     }
     console.log(`API RETURN: ${this.state.fauxAPIreturn}`)
-
-
-    // OR
-    // this.setState(() => ({ fauxAPIreturn: fauxDB.filter(match => this.instruments === this.state.selectedInstrument) }));
 
     // SET RESULTS
     this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
@@ -129,6 +154,11 @@ class Login extends Component {
     this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
   };
 
+  handleNewSearch = event => {
+    this.setState(({ showDiv: false }));
+    this.setState(({ currentResultIndex: 0 }));
+  }
+
 
   // Render Page
   render() {
@@ -141,62 +171,64 @@ class Login extends Component {
           <div className="container">
             <h1 className="homelogo">Welcome</h1>
 
-            <div className="searchbox">
+            {this.state.showDiv ? <div></div> :
+              <div className="searchbox">
 
-              <div className="instructions">
-                <h4 className="searchtext">What kind of musician are you looking for?</h4>
-              </div>
-
-              <div className="searchinputs">
-
-                <SearchInstrument name="selectedInstrument" defaultValue="" onChange={this.handleInputChange} />
-                <SearchGenre name="selectedGenre" defaultValue="" onChange={this.handleInputChange} />
-
-                <FormBtn onClick={this.handleFormSubmit} id="Search">Search</FormBtn>
-
-              </div>
-            </div>
-
-            <div id="searchResultsContainer">
-              <h3 id="resultsText">Results</h3>
-
-              <div id="currentResult">
-
-                <div id="resultHeader">
-                  <h4 className="resultUsername">{this.state.currentResult.username}</h4>
-                  <img className="resultProfilePic" src={this.state.currentResult.profilePic} alt="" />
-                  <h5 className="resultBio">{this.state.currentResult.bio}</h5>
+                <div className="instructions">
+                  <h4 className="searchtext">What kind of musician are you looking for?</h4>
                 </div>
 
-                <div>
-                  <FormBtn
-                    onClick={this.handleViewProfile} id="viewCurrentResultProfile">
-                    View Profile
-                </FormBtn>
-                </div>
+                <div className="searchinputs">
 
-                <div className="resultVideos">
-                  {
-                    this.state.currentResult ?
-                      (this.state.currentResult.videos.map((video, index) => (
-                        <div key={index}><img src={video} alt="cool pics" className="video" /></div>
-                      ))) :
-                      (<div></div>)
-                  }
+                  <SearchInstrument name="selectedInstrument" defaultValue="" onChange={this.handleInputChange} />
+                  <SearchGenre name="selectedGenre" defaultValue="" onChange={this.handleInputChange} />
+
+                  <FormBtn onClick={this.handleFormSubmit} id="Search">Search</FormBtn>
+
                 </div>
               </div>
+            }
 
-              <div id="responseButtons">
-                <FormBtn
-                  onClick={this.handleMessageSubmit} id="messageUser">
-                  Message
-                </FormBtn>
-                <FormBtn
-                  onClick={this.handleNextRequest} id="nextResult">
-                  Next
-                </FormBtn>
+
+            {this.state.showDiv ?
+              <div id="searchResultsContainer">
+                <h3 id="resultsText">Results</h3>
+
+                <div id="currentResult">
+
+                  <div id="resultHeader">
+                    <h4 className="resultUsername">{this.state.currentResult.username}</h4>
+                    <img className="resultProfilePic" src={this.state.currentResult.profilePic} alt="" />
+                    <h5 className="resultBio">{this.state.currentResult.bio}</h5>
+                  </div>
+
+                  <div>
+                    <button onClick={this.handleViewProfile} id="viewCurrentResultProfile" className="btn">View Profile</button>
+                  </div>
+
+                  <div className="resultVideos">
+                    {
+                      this.state.currentResult ?
+                        (this.state.currentResult.videos.map((video, index) => (
+                          <div key={index}><img src={video} alt="cool pics" className="video" /></div>
+                        ))) :
+                        (<div></div>)
+                    }
+                  </div>
+                </div>
+
+                <div id="responseButtons">
+                  <button onClick={this.handleMessageSubmit} id="messageUser" className="btn">Message</button>
+                  <button onClick={this.handleNextRequest} id="nextResult" className="btn">Next</button>
+                </div>
               </div>
-            </div>
+              : null}
+            {this.state.showDiv ?
+              <div>
+                <button onClick={this.handleNewSearch} id="newSearch" className="btn">New Search</button>
+              </div>
+              : null}
+
           </div>
         </main>
 

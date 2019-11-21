@@ -6,7 +6,9 @@
     min-height: 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center
+    background-position: center;
+    display: flex;
+    flex-direction: column;
 }
 /* Page Header */
 .signuptext {
@@ -52,4 +54,15 @@
 /* Sign up button */
 #Signup {
     background: #616161;
+}
+#thanksSignup {
+    background: #616161;
+    opacity: 90%;
+    margin: 25% auto;
+    border: #26a69a 2px solid;
+    border-radius: 25px;
+    padding: 10px;
+}
+#returnToLogin{
+    font-family: 'Patrick Hand', cursive;
 }

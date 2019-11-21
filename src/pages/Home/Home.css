@@ -59,7 +59,8 @@ main {
     font-family: 'Patrick Hand', cursive;
 }
 #Search:hover{
-    color: #26a69a
+    color: #26a69a;
+    border: #26a69a 1px solid
 }
 
 /* Materialize Selects */
@@ -145,6 +146,16 @@ main {
 }
 #viewCurrentResultProfile:hover{
     color: #26a69a
+}
+#newSearch {
+    margin: 5px auto 20px auto;
+    background: #6c6c6c;
+    font-family: 'Patrick Hand', cursive;
+    border: 1px solid #26a69a;
+}
+#newSearch:hover{
+    color: #26a69a;
+    background: #d7d7d7
 }
 
 
