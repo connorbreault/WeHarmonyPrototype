@@ -3,8 +3,9 @@ import M from 'materialize-css';
 import { SideNav, SideNavItem } from 'react-materialize';
 import pic from "../../images/Ad.jpg";
 import app from "../../base.js";
-import { Route } from "react-router-dom";
 import { AuthProvider } from "../../Auth.js";
+import "./Navbar.css";
+// import { Route } from "react-router-dom";
 
 class Navbar extends React.Component {
 
@@ -24,7 +25,7 @@ class Navbar extends React.Component {
                             <div className="container">
 
                                 {/* Header logo */}
-                                <a href="/Home" className="brand-logo center">WeHarmony</a>
+                                <a href="/Home" ><img src={"./LogoWhite.png"} alt="logo" className="brand-logo center" id="logoNavbar" /></a>
 
                                 {/* SIDENAV */}
                                 <div className="hide-on-large-only">
@@ -62,7 +63,7 @@ class Navbar extends React.Component {
                                 <ul id="navbar-links" className="right hide-on-med-and-down">
                                     <li><a href="/Home" className="homeLink lnk">Home</a></li>
                                     <li><a href="/Profile" className="profileLink lnk">My Profile</a></li>
-                                    <li><a onClick={() => app.auth().signOut()} className="signOutLink lnk">Sign Out</a></li>
+                                    <li><a href="/" onClick={() => app.auth().signOut()} className="signOutLink lnk">Sign Out</a></li>
                                 </ul>
                             </div>
                         </nav>

@@ -1,11 +1,11 @@
-import React, { Component, useCallback, useContext } from "react";
-import { Redirect } from "react-router";
+import React, { Component } from "react";
 import "./Profile.css";
 import { Row, Col } from 'react-materialize';
 import { FormBtn } from "../../components/Form";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
+// import { Redirect } from "react-router";
+// import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
 
 class Profile extends Component {
   // handleAuth = event => {

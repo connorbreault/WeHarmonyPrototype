@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { FormBtn } from "../../components/Form";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import SearchInstrument from "../../components/Form/searchInstrument";
 import SearchGenre from "../../components/Form/searchGenre";
-import "./Home.css"
+import Emoji from "../../components/Emoji";
+import "./Home.css";
 
 const fauxDB = [
   {
@@ -106,7 +107,7 @@ const fauxDB = [
   },
 ]
 
-class Login extends Component {
+class Login extends React.Component {
 
   state = {
     selectedInstrument: "",
@@ -144,20 +145,20 @@ class Login extends Component {
 
         if (latitudeDif < 0.3 && longitudeDif < 0.3 && latitudeDif > -0.3 && longitudeDif > -0.3) {
           let match = this.state.fauxDB[i]
-          console.log(`Match: ${match.username} === LatDif: ${latitudeDif} & LongDif: ${longitudeDif}`)
           matches.push(match)
-          this.setState(({ fauxAPIreturn: matches }));
+          console.log(matches)
+          this.setState(() => ({ fauxAPIreturn: matches }))
         }
       }
     }
-    console.log(`API RETURN: ${this.state.fauxAPIreturn}`)
+    this.state.fauxAPIreturn.length > 0 ? console.log(`API RETURN: ${this.state.fauxAPIreturn}`) : console.log('arr empty')
 
 
     // SET RESULTS
-    if (fauxDB[this.state.currentResultIndex] === undefined) {
+    if (this.state.fauxAPIreturn.length <= 0) {
       this.setState(({ noMatches: true }));
     } else {
-      this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
+      this.setState(() => ({ currentResult: this.state.fauxAPIreturn[this.state.currentResultIndex] }));
       this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
     }
   };
@@ -180,8 +181,6 @@ class Login extends Component {
       this.setState(({ showResults: false }));
     } else {
       this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
-      //console.log(this.state.currentResultIndex)
-      //console.log(fauxDB[this.state.currentResultIndex])
       this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
     }
   };
@@ -227,7 +226,7 @@ class Login extends Component {
               <div id="searchResultsContainer">
                 <h3 id="resultsText">Results</h3>
                 <div id="currentResult">
-                  <h4>No users match your request 😥</h4>
+                  <h4>No users match your request <Emoji symbol="😥" /></h4>
                 </div>
               </div>
               : null}

@@ -46,7 +46,7 @@ const Login = ({ history }) => {
   return (
     <div className="loginbackground" >
       <div className="container">
-        <h1 className="logo">WeHarmony</h1>
+        <img src={"./LogoWhite.png"} alt="logo" className="logo" />
         <div className="loginbox">
           <h1 className="logintext">Log in</h1>
           <form onSubmit={handleLogin}>
