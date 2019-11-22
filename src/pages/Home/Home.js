@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import SearchInstrument from "../../components/Form/searchInstrument";
 import SearchGenre from "../../components/Form/searchGenre";
+import Results from "../../components/Results/results";
 import Emoji from "../../components/Emoji";
 import "./Home.css";
 
@@ -107,13 +108,12 @@ const fauxDB = [
   },
 ]
 
-class Login extends React.Component {
+class Home extends React.Component {
+
 
   state = {
     selectedInstrument: "",
     selectedGenre: "",
-    currentResult: "",
-    currentResultIndex: 0,
     fauxDB,
     fauxAPIreturn: [],
     showDiv: false,
@@ -123,7 +123,8 @@ class Login extends React.Component {
   };
 
 
-  // setState when inputs recieve keystrokes
+
+  // RECIEVE KEYSTROKES
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -135,43 +136,27 @@ class Login extends React.Component {
   handleFormSubmit = event => {
     // Show divs
     this.setState(({ showDiv: true, showResults: true }));
-
     // SEARCH LOGIC
     let matches = []
     for (var i = 0; i < this.state.fauxDB.length; i++) {
+      // IF SELECTED INSTRUMENT AND GENRE
       if (this.state.fauxDB[i].instruments === this.state.selectedInstrument && this.state.fauxDB[i].genres === this.state.selectedGenre) {
         let latitudeDif = (Math.abs(this.state.fauxDB[i].latitude) - 38.5)
         let longitudeDif = (Math.abs(this.state.fauxDB[i].longitude) - 121.4)
-
+        // IF WITHIN LAT+LONG DISTANCE
         if (latitudeDif < 0.3 && longitudeDif < 0.3 && latitudeDif > -0.3 && longitudeDif > -0.3) {
           let match = this.state.fauxDB[i]
           matches.push(match)
-          console.log(matches)
-          this.setState(() => ({ fauxAPIreturn: matches }))
         }
       }
     }
-    this.state.fauxAPIreturn.length > 0 ? console.log(`API RETURN: ${this.state.fauxAPIreturn}`) : console.log('arr empty')
-
-
-    // SET RESULTS
-    if (this.state.fauxAPIreturn.length <= 0) {
+    // SET RESULTS OR NO MATCH
+    if (matches.length <= 0) {
       this.setState(({ noMatches: true }));
+      this.setState(({ showResults: false }));
     } else {
-      this.setState(() => ({ currentResult: this.state.fauxAPIreturn[this.state.currentResultIndex] }));
-      this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
+      this.setState({ fauxAPIreturn: matches }, () => console.log(`API: ${this.state.fauxAPIreturn[0].bio}`))
     }
-  };
-
-
-  // VIEW PROFILE
-  handleViewProfile = event => {
-    alert("Logic to be added soon")
-  }
-
-  // MESSAGE BUTTON
-  handleMessageSubmit = event => {
-    alert(`Send message button hit`)
   };
 
   // NEXT REQUEST
@@ -179,58 +164,57 @@ class Login extends React.Component {
     if (fauxDB[this.state.currentResultIndex] === undefined) {
       this.setState(({ noMoreMatches: true }));
       this.setState(({ showResults: false }));
-    } else {
-      this.setState((prevState) => ({ currentResultIndex: prevState.currentResultIndex + 1 }))
-      this.setState(() => ({ currentResult: fauxDB[this.state.currentResultIndex] }));
     }
   };
 
+  // NEW SEARCH
   handleNewSearch = event => {
     this.setState(({ showDiv: false }));
     this.setState(({ noMatches: false }));
     this.setState(({ noMoreMatches: false }));
     this.setState(({ currentResultIndex: 0 }));
+    this.setState(({ fauxAPIreturn: [] }))
   }
+
 
 
   // Render Page
   render() {
     return (
       <div className="homebackground" >
-
         <Navbar />
-
         <main>
           <div className="container">
             <h1 className="homelogo">Welcome</h1>
 
+            {/* SEARCH BOX */}
             {this.state.showDiv ? <div></div> :
               <div className="searchbox">
-
                 <div className="instructions">
                   <h4 className="searchtext">What kind of musician are you looking for?</h4>
                 </div>
-
                 <div className="searchinputs">
-
                   <SearchInstrument name="selectedInstrument" defaultValue="" onChange={this.handleInputChange} />
                   <SearchGenre name="selectedGenre" defaultValue="" onChange={this.handleInputChange} />
-
                   <FormBtn onClick={this.handleFormSubmit} id="Search">Search</FormBtn>
-
                 </div>
               </div>
             }
 
+
+            {/* NO MATCHES */}
             {this.state.noMatches ?
               <div id="searchResultsContainer">
                 <h3 id="resultsText">Results</h3>
                 <div id="currentResult">
                   <h4>No users match your request <Emoji symbol="😥" /></h4>
                 </div>
+                <button onClick={this.handleNewSearch} id="noMoreResultNewSearch" className="btn">New Search</button>
               </div>
               : null}
 
+
+            {/* NO MORE MATCHES */}
             {this.state.noMoreMatches ?
               <div id="searchResultsContainer">
                 <h3 id="resultsText">Results</h3>
@@ -241,52 +225,24 @@ class Login extends React.Component {
               </div>
               : null}
 
+
+            {/* RESULTS BOX */}
             {this.state.showDiv && this.state.showResults ?
-              <div id="searchResultsContainer">
-                <h3 id="resultsText">Results</h3>
-
-                <div id="currentResult">
-
-                  <div id="resultHeader">
-                    <h4 className="resultUsername">{this.state.currentResult.username}</h4>
-                    <img className="resultProfilePic" src={this.state.currentResult.profilePic} alt="" />
-                    <h5 className="resultBio">{this.state.currentResult.bio}</h5>
-                  </div>
-
-                  <div>
-                    <button onClick={this.handleViewProfile} id="viewCurrentResultProfile" className="btn">View Profile</button>
-                  </div>
-
-                  <div className="resultVideos">
-                    {
-                      this.state.currentResult ?
-                        (this.state.currentResult.videos.map((video, index) => (
-                          <div key={index}><img src={video} alt="cool pics" className="video" /></div>
-                        ))) :
-                        (<div></div>)
-                    }
-                  </div>
-                </div>
-
-                <div id="responseButtons">
-                  <button onClick={this.handleMessageSubmit} id="messageUser" className="btn">Message</button>
-                  <button onClick={this.handleNextRequest} id="nextResult" className="btn">Next</button>
-                </div>
-              </div>
+              <Results items={this.state.fauxAPIreturn} />
               : null}
+
+
+            {/* NEW SEARCH BUTTON */}
             {this.state.showDiv && this.state.showResults ?
               <div>
                 <button onClick={this.handleNewSearch} id="newSearch" className="btn">New Search</button>
               </div>
               : null}
-
           </div>
         </main>
-
         <Footer />
-
       </div>
     );
   }
 }
-export default Login;
+export default Home;
