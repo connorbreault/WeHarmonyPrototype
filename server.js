@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
-const Data = require("./data");
 const app = express();
-var PORT = process.env.PORT || 3001;
-var cors = require("cors");
-app.use(cors());
 const router = express.Router();
 
+var PORT = 3001;
+var cors = require("cors");
+app.use(cors());
+
 const dbRoute =
-    "mongodb+srv://weharmony:<PASSWORD>@weharmony-rg9xb.mongodb.net/test?retryWrites=true&w=majority";
+    "mongodb+srv://beststudentsever:<PASSWORD>@weharmonyprototype-cc1dm.mongodb.net/weHarmony?retryWrites=true&w=majority";
 
 mongoose.connect(dbRoute, { useNewUrlParser: true });
 
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(logger("dev"));
 
 router.get("/getUserData", (req, res) => {
-    var cursor = db.collection("weHarmony").find();
+    var cursor = db.collection("Users").find();
     var users = [];
 
     cursor.stream()
