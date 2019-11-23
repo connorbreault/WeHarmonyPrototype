@@ -40,6 +40,8 @@ class Signup extends React.Component {
     }
 
 
+
+
     // setState when inputs recieve keystrokes
     handleInputChange = event => {
         const { name, value } = event.target;

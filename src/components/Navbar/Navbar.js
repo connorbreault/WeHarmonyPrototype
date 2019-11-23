@@ -35,7 +35,6 @@ class Navbar extends React.Component {
                                         <SideNavItem userView user={{
                                             background: pic,
                                             image: './PlaceholderProfilePic.jpg',
-                                            name: 'Welcome!',
                                             id: "test"
                                         }} />
 

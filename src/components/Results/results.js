@@ -1,4 +1,6 @@
 import React from 'react';
+import Emoji from "../../components/Emoji";
+import YouTube from 'react-youtube';
 class results extends React.Component {
     state = {
         index: 0,
@@ -21,6 +23,11 @@ class results extends React.Component {
         alert("View profile logic will be added")
     }
     render() {
+        const opts = {
+            playerVars: { // https://developers.google.com/youtube/player_parameters
+                autoplay: 1
+            }
+        };
         return (
             <div>
                 {this.state.showResults ?
@@ -43,7 +50,13 @@ class results extends React.Component {
                                 {
                                     this.props.items[this.state.index] ?
                                         (this.props.items[this.state.index].videos.map((video, index) => (
-                                            <div key={index}><img src={video} alt="cool pics" className="video" /></div>
+                                            <YouTube
+                                                key={index}
+                                                className="youtubeVid"
+                                                videoId={video}
+                                                opts={opts}
+                                                onReady={this._onReady}
+                                            />
                                         ))) :
                                         (<div></div>)
                                 }
@@ -62,8 +75,8 @@ class results extends React.Component {
                         <h3 id="resultsText">Results</h3>
                         <div id="currentResult">
                             <h4>There are no more users matching your request...</h4>
+                            <h4><Emoji symbol="😥" /></h4>
                         </div>
-                        {/* <button onClick={this.handleNewSearch} id="noMoreResultNewSearch" className="btn">New Search</button> */}
                     </div>
                     : null}
             </div>

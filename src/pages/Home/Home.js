@@ -23,9 +23,9 @@ const fauxDB = [
     profilePic: "./PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
-      "./vidPlaceholder.png",
-      "./vidPlaceholder.png",
-      "./vidPlaceholder.png",
+      "yV5WKvNZ_6g",
+      "yV5WKvNZ_6g",
+      "yV5WKvNZ_6g",
     ],
     id: 1
   },
@@ -43,9 +43,9 @@ const fauxDB = [
     profilePic: "./PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
-      "./vidPlaceholder.png",
-      "./vidPlaceholder.png",
-      "./vidPlaceholder.png",
+      "yV5WKvNZ_6g",
+      "yV5WKvNZ_6g",
+      "yV5WKvNZ_6g",
     ],
     id: 1
   },
@@ -63,9 +63,9 @@ const fauxDB = [
     profilePic: "./PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
-      "./vidPlaceholder.png",
-      "./vidPlaceholder.png",
-      "./vidPlaceholder.png",
+      "yV5WKvNZ_6g",
+      "yV5WKvNZ_6g",
+      "yV5WKvNZ_6g",
     ],
     id: 1
   },
@@ -83,7 +83,7 @@ const fauxDB = [
     profilePic: "./PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
-      "./vidPlaceholder.png",
+      "yV5WKvNZ_6g",
     ],
     id: 2
   },
@@ -101,8 +101,8 @@ const fauxDB = [
     profilePic: "./images/PlaceholderProfilePic.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
-      "./vidPlaceholder.png",
-      "./vidPlaceholder.png",
+      "yV5WKvNZ_6g",
+      "yV5WKvNZ_6g",
     ],
     id: 3
   },

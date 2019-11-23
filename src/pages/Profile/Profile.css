@@ -40,7 +40,7 @@ main {
 }
 #messageButton{
     background: gray;
-    width: 50%;
+    width: 90%;
     margin: auto;
     height: fit-content;
     padding: 10px;
@@ -55,15 +55,27 @@ main {
     border: black 2px outset;
     border-radius: 25px
 }
-.video{
+/* #video{
+    width: 95%;
+    margin: auto
+} */
+.youtubeVid{
     width: 90%;
-    height: 40%;
+    height: 250px;
     margin: 20px auto;
-    border: black 1px outset
+}
+
+@media only screen and ( min-width: 700px ) {
+    .youtubeVid{
+        height: 400px
+    }
 }
 /* =========== Over 800px ========== */
 @media only screen and ( min-width: 800px ) {
-
+    
+    #messageButton{
+        width: 50%;
+    }
     #userInfoContainer{
         width: 80%
     }
@@ -81,5 +93,8 @@ main {
     color: white;
     font-family: 'Courgette', cursive;
     text-decoration: #47a79a underline dotted
+    }
+    .youtubeVid{
+        height: 600px;
     }
 }
