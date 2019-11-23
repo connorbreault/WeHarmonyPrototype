@@ -1,63 +1,47 @@
-// import express from "express";
-// import mongoose from "mongoose";
-// import exphbs from "express-handlebars";
-// import axios from "axios";
-// import cheerio from "cheerio";
-// import logger from "morgan";
+const mongoose = require("mongoose");
+const express = require("express");
+const bodyParser = require("body-parser");
+const logger = require("morgan");
+const app = express();
+const router = express.Router();
 
-// const Data = require('./data');
+var PORT = 3001;
+var cors = require("cors");
+app.use(cors());
 
-// var app = express();
-// var PORT = process.env.PORT || 3001;
+const dbRoute =
+    "mongodb+srv://beststudentsever:<PASSWORD>@weharmonyprototype-cc1dm.mongodb.net/weHarmony?retryWrites=true&w=majority";
 
-// // Use morgan logger for logging requests
-// app.use(logger("dev"));
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-// app.use(express.static("public"));
+mongoose.connect(dbRoute, { useNewUrlParser: true });
 
-// // Connect to the Mongo DB
-// var MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://weharmony:<password>@weharmony-rg9xb.mongodb.net/test?retryWrites=true&w=majority'
-// mongoose.connect(MONGODB_URI)
+let db = mongoose.connection;
 
-// var db = mongoose.connection;
+db.once("open", () => console.log("connected to the database"));
 
-// // var databaseURL = "mongodb+srv://weharmony:<password>@weharmony-rg9xb.mongodb.net/test?retryWrites=true&w=majority";
+db.on("error", console.error.bind(console, "MongoDB connection error: "));
 
-// // var db = mongojs(databaseURL, articles);
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(logger("dev"));
 
-// db.once('open', () => console.log('connected to the database'));
+router.get("/getUserData", (req, res) => {
+    var cursor = db.collection("Users").find();
+    var users = [];
 
-// db.on("error", () => console.log("There was an error:", error));
+    cursor.stream()
+        .on("data", function (user) {
+            users.push(user);
+        })
+        .on("error", function (err) {
+            console.log(err);
+        })
+        .on("end", function () {
+            return res.json({ success: true, data: users });
+        });
+});
 
-// app.get("/", function (req, res) {
-//     Data.find((err, data) => {
-//         if (err) return res.json({ success: false, error: err });
-//         return res.json({ success: true, data: data });
-//     });
+app.use("/api", router);
 
-//     app.get("/user/:id", function (req, res) {
-//         db.getUser.find({}, function (err, found) {
-//             if (err) {
-//                 console.log(err);
-//             }
-//             else {
-//                 console.log(found);
-//             }
-//         });
-//     });
-
-//     // app.get("/reset", function (req, res) {
-//     //     db.scrapeAltPress.drop()
-//     //     res.send("reset");
-//     // });
-
-//     // app.get("/", function (req, res) {
-//     //     axios.get("/").then(function (response) {
-//     //     });
-// });
-
-// // Start the server
-// app.listen(PORT, function () {
-//     console.log("App running on port " + PORT + "!");
-// });
+app.listen(PORT, function () {
+    console.log("App running on port " + PORT + "!");
+});
