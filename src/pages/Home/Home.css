@@ -58,6 +58,10 @@ main {
     background: #6d6d6d;
     font-family: 'Patrick Hand', cursive;
 }
+#Search:hover{
+    color: #26a69a;
+    border: #26a69a 1px solid
+}
 
 /* Materialize Selects */
 .select-dropdown{
@@ -79,16 +83,99 @@ main {
 /* RESULTS SECTION */
 #searchResultsContainer{
     background: gray;
-    padding: 10px;
+    padding: 50px 10px;
     margin: 15px auto;
+    border: solid 2px black;
     border-radius: 20px;
 }
+#resultsText{
+    margin: 5px;
+    color: white;
+    font-family: 'Courgette', cursive;
+    text-decoration: underline dashed white
+}
+#resultHeader{
+    margin: 20px auto;
+    ;
+}
 .resultUsername{
-    font-size: 25px
+    margin: 5px;
+    font-family: 'Acme', sans-serif;
+    color: #26a69a;
+    font-size: 30px;
+    -webkit-text-stroke: 1px black;
+}
+.resultProfilePic{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: black 1px outset;
+    border-radius: 50px;
+}
+.resultBio{
+    font-family: 'Acme', sans-serif;
+    color: #d7d7d7
+}
+#responseButtons{
+    padding: 5px 15px;
+}
+#messageUser{
+    float: left;
+    margin: auto;
+    font-family: 'Patrick Hand', cursive;
+    background: #6c6c6c;
+    border: 1px solid black
+}
+#messageUser:hover{
+    color: #26a69a
+}
+#nextResult{
+    float: right;
+    margin: auto;
+    font-family: 'Patrick Hand', cursive;
+    background: #6c6c6c;
+    border: 1px solid black
+}
+#nextResult:hover{
+    color: #26a69a
+}
+#viewCurrentResultProfile{
+    font-family: 'Patrick Hand', cursive;
+    background: #6c6c6c;
+    border: 1px solid black;
+}
+#viewCurrentResultProfile:hover{
+    color: #26a69a
+}
+#newSearch {
+    margin: 5px auto 20px auto;
+    background: #6c6c6c;
+    font-family: 'Patrick Hand', cursive;
+    border: 1px solid #26a69a;
+}
+#newSearch:hover{
+    color: #26a69a;
+    background: #d7d7d7
+}
+#noMoreResultNewSearch{
+    margin: 5px auto 20px auto;
+    background: #6c6c6c;
+    font-family: 'Patrick Hand', cursive;
+    border: 1px solid #26a69a;
+}
+#noMoreResultNewSearch:hover{
+    color: #26a69a;
+    background: #d7d7d7
 }
 
 
 /* - Media Queries - */
+/* =========== Over 321px ========== */
+@media only screen and ( min-width: 321px ) {
+    .resultUsername{
+        font-size: 40px
+    }
+}
 /* =========== Over 374px ========== */
 @media only screen and ( min-width: 374px ) {
     .instructions{
@@ -99,12 +186,16 @@ main {
     }
 }
 /* =========== Over 377px ========== */
-@media only screen and ( min-width: 377px ) {
+@media only screen and ( min-width: 545px ) {
     .instructions{
         margin: 20% auto auto auto;
     }
     .searchinputs{
         margin: 35% auto auto auto;
+    }
+    #responseButtons{
+        width: 50%;
+        margin: auto
     }
 }
 /* =========== Over 800px ========== */

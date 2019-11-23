@@ -17,19 +17,19 @@
 
 /* Logo Header */
 .logo{
-    font-family: 'Satisfy', cursive;
-    font-size: 55px;
-    color: #f5eed1;
-    text-decoration: underline;
-    text-decoration-color: #de965c;
-    text-decoration-style: dotted;
-    margin: 0% auto auto auto;
-    padding: 30px 0px;
+    width: 80%;
+    margin: 10% auto;
+    mix-blend-mode: overlay;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+.logo:hover{
+    mix-blend-mode: soft-light;
 }
 
 /* Login container */
 .loginbox{
-    margin: 70% auto auto auto;
+    margin: 60% auto auto auto;
 }
 
 /* Login header */
@@ -44,11 +44,13 @@
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
 }
+.logintext:hover{
+    color: #8b4e3a;
+}
 
 /* Inputs */
 .form-control{
     text-align: center;
-    background: #de965c;
     border: transparent;
     color: white !important;
     font-size: 20px !important;
@@ -66,10 +68,14 @@
 #Login{
     background: #efb174
 }
+#Login:hover{
+    background: white;
+    color: #efb174
+}
 
-/* Signup button */
-#Signup{
-    background: #8b4e3a
+#Signup:hover{
+    background: white;
+    color: #8b4e3a
 }
 
 
@@ -81,16 +87,25 @@
 
     /* Login container */
     .loginbox{
-        margin: 90% auto auto auto;
+        margin: 69% auto auto auto;
     }
 
 }
 
+@media (max-width: 376px) and ( min-width: 374px ) {
+
+    /* Login container */
+    .logo{
+        width: 95%;
+        margin: 20% auto auto auto;
+    }
+
+}
 @media (max-height: 820px) and ( min-height: 700px ) {
 
     /* Login container */
     .loginbox{
-        margin: 98% auto auto auto;
+        margin: 80% auto auto auto;
     }
 
 }
@@ -102,14 +117,13 @@
         background-position-x: center
     }
 
-    /* Logo Header */
-    .logo {
-        margin: 0% auto auto auto;
-    }
-
     /* Login container */
     .loginbox{
-        margin: 35% auto auto auto;
+        margin: 20% auto auto auto;
+    }
+    .logo{
+        width: 50%;
+        margin: 4% auto
     }
     
     /* Inputs */

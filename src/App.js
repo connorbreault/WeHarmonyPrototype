@@ -20,8 +20,8 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/Signup" component={Signup} />
             <PrivateRoute exact path="/Home" component={Home} />
-            {/* <Route exact path="/Profile" component={Profile} />
-            <Route exact path="/Contact" component={Contact} /> */}
+            <Route exact path="/Profile" component={Profile} />
+            <Route exact path="/Contact" component={Contact} />
           </div>
         </Router>
       </AuthProvider>

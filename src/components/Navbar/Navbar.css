@@ -1,7 +1,15 @@
-#mainNavbar{
-    opacity: 0.9 !important
+#logoNavbar{
+    width: 40%;
 }
-#sidenavBottomAd{
-    width: 300px !important;
-    height: 150px
+@media (max-width: 800px) and ( min-width: 500px ) {
+    #logoNavbar{
+        width: 25%;
+    }
+}
+/* =========== Over 800px ========== */
+@media only screen and ( min-width: 800px ) {
+
+    #logoNavbar{
+        width: 12%;
+    }
 }
