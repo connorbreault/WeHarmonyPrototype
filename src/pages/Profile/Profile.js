@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import "./Profile.css";
 import { Row, Col } from 'react-materialize';
-import { FormBtn } from "../../components/Form";
+import { Modal, Button } from 'react-materialize';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+// import { FormBtn } from "../../components/Form";
 // import { Redirect } from "react-router";
 // import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
 
+
+const trigger = <Button>Edit Profile</Button>;
 class Profile extends Component {
   // handleAuth = event => {
   //   const { currentUser } = useContext(AuthContext);
@@ -26,8 +29,8 @@ class Profile extends Component {
   };
 
   // When form is submitted
-  handleFormSubmit = event => {
-    alert("add message logic ya dingus")
+  handleEditProfile = event => {
+    alert("add edit logic ya dingus")
   };
 
 
@@ -48,10 +51,9 @@ class Profile extends Component {
               </Col>
             </Row>
             <div id="messageButton">
-              <FormBtn
-                onClick={this.handleFormSubmit} id="Message">
-                Message
-            </FormBtn>
+              <Modal header="Edit Profile" trigger={trigger} onClick={this.handleEditProfile}>
+                Add yo stuff fam
+              </Modal>
             </div>
             <div id="vidContainer">
               <div>
