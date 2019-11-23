@@ -214,18 +214,6 @@ class Home extends React.Component {
               : null}
 
 
-            {/* NO MORE MATCHES */}
-            {this.state.noMoreMatches ?
-              <div id="searchResultsContainer">
-                <h3 id="resultsText">Results</h3>
-                <div id="currentResult">
-                  <h4>There are no more users matching your request...</h4>
-                </div>
-                <button onClick={this.handleNewSearch} id="noMoreResultNewSearch" className="btn">New Search</button>
-              </div>
-              : null}
-
-
             {/* RESULTS BOX */}
             {this.state.showDiv && this.state.showResults ?
               <Results items={this.state.fauxAPIreturn} />
