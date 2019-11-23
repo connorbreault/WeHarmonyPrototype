@@ -4,6 +4,7 @@ import { Row, Col } from 'react-materialize';
 import { Modal, Button } from 'react-materialize';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import YouTube from 'react-youtube';
 // import { FormBtn } from "../../components/Form";
 // import { Redirect } from "react-router";
 // import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
@@ -32,10 +33,19 @@ class Profile extends Component {
   handleEditProfile = event => {
     alert("add edit logic ya dingus")
   };
+  _onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  }
 
 
   // Render Page 
   render() {
+    const opts = {
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    };
     return (
       <div className="profilebackground" >
         <Navbar />
@@ -60,9 +70,24 @@ class Profile extends Component {
                 <h3 id="myVideosText">My Videos</h3>
               </div>
               <div id="userVideos">
-                <img className="video" alt="" src={"./vidPlaceholder.png"} />
-                <img className="video" alt="" src={"./vidPlaceholder.png"} />
-                <img className="video" alt="" src={"./vidPlaceholder.png"} />
+                <YouTube
+                  className="youtubeVid"
+                  videoId="yV5WKvNZ_6g"
+                  opts={opts}
+                  onReady={this._onReady}
+                />
+                <YouTube
+                  className="youtubeVid"
+                  videoId="yV5WKvNZ_6g"
+                  opts={opts}
+                  onReady={this._onReady}
+                />
+                <YouTube
+                  className="youtubeVid"
+                  videoId="yV5WKvNZ_6g"
+                  opts={opts}
+                  onReady={this._onReady}
+                />
               </div>
             </div>
           </div>

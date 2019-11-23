@@ -1,6 +1,13 @@
 #logoNavbar{
     width: 40%;
 }
+
+.user-view {
+    height: 175px;
+}
+.circle{
+    margin-top: 80px;
+}
 @media (max-width: 800px) and ( min-width: 500px ) {
     #logoNavbar{
         width: 25%;
