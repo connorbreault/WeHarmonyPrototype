@@ -33,6 +33,8 @@ class Profile extends Component {
   handleEditProfile = event => {
     alert("add edit logic ya dingus")
   };
+
+
   _onReady(event) {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
@@ -70,6 +72,13 @@ class Profile extends Component {
                 <h3 id="myVideosText">My Videos</h3>
               </div>
               <div id="userVideos">
+
+                {/* VIDEOS WILL BE MAPPED FROM LOGGED IN USER HERE
+                *
+                *
+                *
+                */}
+
                 <YouTube
                   className="youtubeVid"
                   videoId="yV5WKvNZ_6g"
@@ -78,13 +87,7 @@ class Profile extends Component {
                 />
                 <YouTube
                   className="youtubeVid"
-                  videoId="yV5WKvNZ_6g"
-                  opts={opts}
-                  onReady={this._onReady}
-                />
-                <YouTube
-                  className="youtubeVid"
-                  videoId="yV5WKvNZ_6g"
+                  videoId="KKBkVH06ehY"
                   opts={opts}
                   onReady={this._onReady}
                 />

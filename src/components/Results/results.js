@@ -19,9 +19,17 @@ class results extends React.Component {
     message = () => {
         alert("Message logic will be added")
     };
+
     handleViewProfile = () => {
         alert("View profile logic will be added")
     }
+
+    _onReady(event) {
+        // access to player in all event handlers via event.target
+        event.target.pauseVideo();
+    }
+
+
     render() {
         const opts = {
             playerVars: { // https://developers.google.com/youtube/player_parameters
