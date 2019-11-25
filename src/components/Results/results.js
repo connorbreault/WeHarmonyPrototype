@@ -47,6 +47,7 @@ class results extends React.Component {
                             <div id="resultHeader">
                                 <h4 className="resultUsername">{this.props.items[this.state.index].username}</h4>
                                 <img className="resultProfilePic" src={this.props.items[this.state.index].profilePic} alt="" />
+                                <h4 className="resultUsername">{this.props.items[this.state.index].location}</h4>
                                 <h5 className="resultBio">{this.props.items[this.state.index].bio}</h5>
                             </div>
 

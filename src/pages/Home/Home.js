@@ -13,15 +13,15 @@ const fauxDB = [
     firstname: "Sacramento",
     lastname: "Drummer",
     email: "placeholder@somewhere.com",
-    username: "SacDrummerINDIE",
+    username: "SacDrummerALT",
     password: "1234",
     location: "Sacramento",
     instruments: "Drums",
-    genres: "Indie",
+    genres: "Alternative",
     latitude: 38.5963157,
     longitude: -121.4399041,
-    profilePic: "./PlaceholderProfilePic.jpg",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    profilePic: "https://www.metalsucks.net/wp-content/uploads/2011/04/blakerichardson.jpg",
+    bio: "Blake Richardson",
     videos: [
       "GR8bITumSdk",
     ],
@@ -38,13 +38,13 @@ const fauxDB = [
     genres: "Metal",
     latitude: 38.5963157,
     longitude: -121.4399041,
-    profilePic: "./PlaceholderProfilePic.jpg",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    profilePic: "https://pbs.twimg.com/profile_images/771114661785722880/ktrNr24O_400x400.jpg",
+    bio: "Gabe Seeber",
     videos: [
       "l2Y8LJMuSmQ",
       "xTjCAKkA6So",
     ],
-    id: 1
+    id: 2
   },
   {
     firstname: "Reno",
@@ -62,25 +62,25 @@ const fauxDB = [
     videos: [
       "XPCGcpgpBVU",
     ],
-    id: 1
+    id: 3
   },
   {
-    firstname: "Sacramento",
+    firstname: "Roseville",
     lastname: "Guitar",
     email: "placeholder@somewhere.com",
-    username: "SacramentoGuitar",
+    username: "RosevilleGuitar",
     password: "1234",
-    location: "Sacramento",
+    location: "Roseville",
     instruments: "Guitar",
     genres: "Metal",
-    latitude: 38.5963157,
-    longitude: -121.4399041,
-    profilePic: "./PlaceholderProfilePic.jpg",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
+    latitude: 38.7902545,
+    longitude: -121.3770336,
+    profilePic: "https://pbs.twimg.com/profile_images/1091122950919483397/Z5DS1rNd_400x400.jpg",
+    bio: "Michael Caldwell",
     videos: [
       "FAcQmrV7CGI",
     ],
-    id: 2
+    id: 4
   },
   {
     firstname: "Sacramento",
@@ -93,12 +93,66 @@ const fauxDB = [
     genres: "Metal",
     latitude: 38.5963157,
     longitude: -121.4399041,
-    profilePic: "./images/PlaceholderProfilePic.jpg",
+    profilePic: "https://i.ytimg.com/vi/vWCMZYTgyng/maxresdefault.jpg",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore",
     videos: [
-      "YWR4n0VszI",
+      "_YWR4n0VszI",
     ],
-    id: 3
+    id: 5
+  },
+  {
+    firstname: "Sacramento",
+    lastname: "Drummer",
+    email: "placeholder@somewhere.com",
+    username: "ElkGroveDrummer",
+    password: "1234",
+    location: "Elk Grove",
+    instruments: "Drums",
+    genres: "Metal",
+    latitude: 38.4244019,
+    longitude: -121.3312882,
+    profilePic: "http://www.vratim.com/uploads/4/9/8/7/49871791/8303270_orig.jpg",
+    bio: "Josh Miller",
+    videos: [
+      "IdNVcqpVM30",
+    ],
+    id: 6
+  },
+  {
+    firstname: "Sacramento",
+    lastname: "Drummer",
+    email: "placeholder@somewhere.com",
+    username: "AuburnDrummer",
+    password: "1234",
+    location: "Auburn",
+    instruments: "Drums",
+    genres: "Metal",
+    latitude: 38.9101752,
+    longitude: -121.067907,
+    profilePic: "http://www.vratim.com/uploads/4/9/8/7/49871791/8303270_orig.jpg",
+    bio: "Josh Miller but from auburn",
+    videos: [
+      "IdNVcqpVM30",
+    ],
+    id: 7
+  },
+  {
+    firstname: "Fairfeild",
+    lastname: "Drummer",
+    email: "placeholder@somewhere.com",
+    username: "AuburnDrummer",
+    password: "1234",
+    location: "Fairfeild",
+    instruments: "Drums",
+    genres: "Metal",
+    latitude: 38.2493627,
+    longitude: -122.0399969,
+    profilePic: "http://www.vratim.com/uploads/4/9/8/7/49871791/8303270_orig.jpg",
+    bio: "Josh Miller but from Fairfeild",
+    videos: [
+      "IdNVcqpVM30",
+    ],
+    id: 8
   },
 ]
 

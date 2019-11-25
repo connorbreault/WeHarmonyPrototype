@@ -25,15 +25,6 @@ class searchInstrument extends React.Component {
                     <option value="Piano">
                         Piano
                     </option>
-                    <option value="Violin">
-                        Violin
-                    </option>
-                    <option value="Flute">
-                        Flute
-                    </option>
-                    <option value="Saxophone">
-                        Saxophone
-                    </option>
                 </Select>
             </div>
         )

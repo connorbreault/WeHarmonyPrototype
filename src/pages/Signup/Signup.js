@@ -65,11 +65,11 @@ class Signup extends React.Component {
                     const longitude = res.data.results[0].geometry.location.lng;
 
 
-                    console.log(`LATLONG:  ${latitude} ${longitude} `)
+
                     this.setState({ latitude, longitude })
 
                     // Alert results
-                    //alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
+                    alert(`LAT=${latitude} LNG=${longitude} First name= ${this.state.firstname}, Last name= ${this.state.lastname}, email= ${this.state.email}, username= ${this.state.username}, password= ${this.state.password}, location= ${this.state.location}, instruments= ${this.state.instruments}, genres= ${this.state.genres}`)
                 })
 
                 // If err
