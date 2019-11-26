@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-![Demogif](/images/demo.gif)
+![Demogif](./src/images/demo.gif)
 
 Musicians rejoice, with this app you will no longer struggle to find a perfect band mate!  We harmony is a full stack social media application built by Connor Breault and Rebecca Hernandez
 
@@ -16,14 +16,14 @@ Musicians rejoice, with this app you will no longer struggle to find a perfect b
 
 This application was coded using the following:
 
-* [React]
-* [Materialize]
-* [Node.js]
-* [Express]
-* [Javascript]
-* [React-Youtube]
-* [Google-Geocoding-API]
-* [Heroku]
+* React
+* Materialize
+* Node.js
+* Express
+* Javascript
+* React-Youtube
+* Google-Geocoding-API
+* Heroku
 
 
 ### Installation
