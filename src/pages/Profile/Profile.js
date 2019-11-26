@@ -66,6 +66,8 @@ class Profile extends Component {
                 <img className="howToimg" alt="" src={"./howTo.png"} />
                 <h4 className="modalHeaders">Add video id here:</h4>
                 <Input value={this.state.videoId} onChange={this.handleInputChange} name="videoId" placeholder="Video ID" />
+                <br />
+                <Button className="modalBtns">Save Changes</Button>
               </Modal>
 
             </div>
