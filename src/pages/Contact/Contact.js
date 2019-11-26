@@ -60,12 +60,14 @@ class Contact extends Component {
                   </div>
                 </div>
               </div>
+
               <div className="ourcontact">
                 <h5>~ Or ~</h5>
                 <hr />
                 <h6>Dont contact us</h6>
                 <Emoji symbol="🤓" />
               </div>
+
             </div>
             : null
           }

@@ -5,11 +5,10 @@ import { Modal, Button } from 'react-materialize';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "../../components/Form";
-// import YouTube from 'react-youtube';
 // import { FormBtn } from "../../components/Form";
 // import { Redirect } from "react-router";
 // import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
-
+// import YouTube from 'react-youtube';
 
 const trigger = <Button id="modalTarget">Edit Profile</Button>;
 class Profile extends Component {

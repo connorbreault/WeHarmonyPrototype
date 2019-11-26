@@ -64,6 +64,7 @@ class Profile extends Component {
               </Col>
             </Row>
             <div id="messageButton">
+
               <Modal header="" trigger={trigger}>
                 <h2 id="editProfileText">Edit Profile</h2>
                 <h3 className="modalHeaders"> Change Profile Pic: </h3>
@@ -79,19 +80,13 @@ class Profile extends Component {
                 <hr />
                 <Button className="modalBtns">Save Changes</Button>
               </Modal>
+
             </div>
             <div id="vidContainer">
               <div>
                 <h3 id="myVideosText">My Videos</h3>
               </div>
               <div id="userVideos">
-
-                {/* VIDEOS WILL BE MAPPED FROM LOGGED IN USER HERE
-                *
-                *
-                *
-                */}
-
                 <YouTube
                   className="youtubeVid"
                   videoId="fSG2bsXLzN0"

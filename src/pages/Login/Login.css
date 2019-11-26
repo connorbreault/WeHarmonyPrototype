@@ -1,20 +1,18 @@
 /* Background img */
 .loginbackground{
     background: url("../../images/LoginBG.jpg") no-repeat; 
-   background-size: cover;
-   min-width: 100%;
-   background-position-x: -150px;
-   min-height: 100vh;
-   background-repeat: no-repeat;
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center
+    background-position: center;
+    background-size: cover;
+    background-position-x: -150px;
+    min-width: 100%;
+    min-height: 100vh;
 }
-
 /* Page container */
 .container{
-    text-align: center
+    text-align: center;
 }
-
 /* Logo Header */
 .logo{
     width: 80%;
@@ -47,7 +45,6 @@
 .logintext:hover{
     color: #8b4e3a;
 }
-
 /* Inputs */
 .form-control{
     text-align: center;
@@ -56,14 +53,12 @@
     font-size: 20px !important;
     opacity: 80%;
 }
-
 /* Buttons */
 .btn{
     font-family: 'Courgette', cursive;
     margin: auto 5%;
     font-size: 25px;
 }
-
 /* Login button */
 #Login{
     background: #efb174
@@ -72,13 +67,10 @@
     background: white;
     color: #efb174
 }
-
 #Signup:hover{
     background: white;
     color: #8b4e3a
 }
-
-
 
 /* - MEDIA QUERIES - */
 
@@ -91,7 +83,6 @@
     }
 
 }
-
 @media (max-width: 376px) and ( min-width: 374px ) {
 
     /* Login container */
@@ -109,14 +100,12 @@
     }
 
 }
-
 /* =========== Over 800px ========== */
 @media only screen and ( min-width: 800px ) {
 
     .loginbackground {
         background-position-x: center
     }
-
     /* Login container */
     .loginbox{
         margin: 20% auto auto auto;
@@ -125,7 +114,6 @@
         width: 50%;
         margin: 4% auto
     }
-    
     /* Inputs */
     .form-control{
         width: 50%;

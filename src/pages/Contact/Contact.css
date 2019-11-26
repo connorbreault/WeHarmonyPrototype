@@ -2,35 +2,35 @@
     background: url("../../images/ContactBG.jpg") no-repeat; 
     background-size: cover;
     background-position: center;
-    min-width: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    min-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 main {
     flex: 1 0 auto;
   }
 .contactlogo{
+    margin: 0% auto auto auto;
+    padding: 20px;
     font-family: 'Satisfy', cursive;
     font-size: 55px;
     color: #e1d5c7;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #0f0f0b;
     text-decoration: underline;
     text-decoration-color: #a4b083;
     text-decoration-style: dotted;
-    margin: 0% auto auto auto;
-    padding: 20px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #0f0f0b;
 }
 .contactus{
+    margin: auto 10px;
     text-align: center;
     background: #0f0f0b;
     border-radius: 25px;
     padding: 5px;
     opacity: 0.9;
-    margin: auto 10px
 }
 #contactushead{
     font-family: 'Courgette', cursive;
@@ -49,11 +49,11 @@ main {
     color: #0f0f0b;
 }
 .ourcontact{
+    margin: 3% 30%;
     text-align: center;
     background: #0f0f0b;
     color: #dddad8;
     border-radius: 25px;
-    margin: 3% 30%;
     padding: 5px;
     opacity: 0.9;
 }
