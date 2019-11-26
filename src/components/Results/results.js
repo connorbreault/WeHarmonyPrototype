@@ -12,7 +12,8 @@ class results extends React.Component {
     next = () => {
         this.state.index >= this.props.items.length - 1
             ? this.setState({ index: 0, noMoreMatches: true, showResults: false })
-            : this.setState({ index: this.state.index + 1, showResults: true, noMoreMatches: false });
+            : this.setState({ index: this.state.index + 1, showResults: true, noMoreMatches: false })
+        window.scrollTo(0, 150);
     };
 
 

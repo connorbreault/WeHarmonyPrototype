@@ -19,6 +19,7 @@ This application was coded using the following:
 * Materialize
 * Node.js
 * Express
+* Mongo
 * Javascript
 * React-Youtube
 * Google-Geocoding-API
