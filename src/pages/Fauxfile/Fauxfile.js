@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import "./Profile.css";
+import "./Fauxfile.css";
 import { Row, Col } from 'react-materialize';
 import { Modal, Button } from 'react-materialize';
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { Input } from "../../components/Form";
+import YouTube from 'react-youtube';
 // import { FormBtn } from "../../components/Form";
 // import { Redirect } from "react-router";
 // import { AuthContext, AuthProvider, AuthConsumer } from "../../Auth.js";
-// import YouTube from 'react-youtube';
+
 
 const trigger = <Button id="modalTarget">Edit Profile</Button>;
 class Profile extends Component {
@@ -18,6 +19,7 @@ class Profile extends Component {
   state = {
     videoId: ""
   };
+
 
   // setState when inputs recieve keystrokes
   handleInputChange = event => {
@@ -32,13 +34,20 @@ class Profile extends Component {
     alert("add edit logic ya dingus")
   };
 
+
   _onReady(event) {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
 
+
   // Render Page 
   render() {
+    const opts = {
+      playerVars: { // https://developers.google.com/youtube/player_parameters
+        autoplay: 1
+      }
+    };
     return (
       <div className="profilebackground" >
         <Navbar />
@@ -46,14 +55,14 @@ class Profile extends Component {
           <div className="Picandname">
             <Row id="userInfoContainer">
               <Col s={4}>
-                <img className="Profilepic" alt="" src={"./PlaceholderProfilePic.jpg"} />
+                <img className="Profilepic" alt="" src={"./Chaboi.jpg"} />
               </Col>
               <Col s={8} id="userInfoText">
-                <p className="Profilename">Name</p>
-                <p className="Profilebio"> Bio </p>
+                <p className="Profilename">Connor Breault</p>
+                <p className="Profilebio"> Heres my super cool bio </p>
               </Col>
             </Row>
-            <div>
+            <div id="messageButton">
 
               <Modal header="" trigger={trigger}>
                 <h2 id="editProfileText">Edit Profile</h2>
@@ -64,8 +73,11 @@ class Profile extends Component {
                 <h5>Step 1: Upload to youtube</h5>
                 <h5>Step 2: Add video id(as shown in picture) below!</h5>
                 <img className="howToimg" alt="" src={"./howTo.png"} />
+                <br />
                 <h4 className="modalHeaders">Add video id here:</h4>
                 <Input value={this.state.videoId} onChange={this.handleInputChange} name="videoId" placeholder="Video ID" />
+                <hr />
+                <Button className="modalBtns">Save Changes</Button>
               </Modal>
 
             </div>
@@ -74,20 +86,12 @@ class Profile extends Component {
                 <h3 id="myVideosText">My Videos</h3>
               </div>
               <div id="userVideos">
-                <h3>Add videos in "Edit Profile" section!</h3>
-                {/* VIDEOS WILL BE MAPPED FROM LOGGED IN USER HERE */}
-                {/* <YouTube
+                <YouTube
                   className="youtubeVid"
-                  videoId="yV5WKvNZ_6g"
+                  videoId="fSG2bsXLzN0"
                   opts={opts}
                   onReady={this._onReady}
                 />
-                <YouTube
-                  className="youtubeVid"
-                  videoId="KKBkVH06ehY"
-                  opts={opts}
-                  onReady={this._onReady}
-                /> */}
               </div>
             </div>
           </div>

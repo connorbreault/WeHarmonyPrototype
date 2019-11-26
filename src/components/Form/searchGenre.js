@@ -21,12 +21,6 @@ class searchGenre extends React.Component {
                     <option value="Metal">
                         Metal
                 </option>
-                    <option value="Pop">
-                        Pop
-                </option>
-                    <option value="Rap">
-                        Rap
-                </option>
                     <option value="Alternative">
                         Alternative
                 </option>

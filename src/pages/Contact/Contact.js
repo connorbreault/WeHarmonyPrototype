@@ -21,12 +21,12 @@ class Contact extends Component {
     });
   };
   handleFormSubmit = event => {
-    this.setState(({ showInput: false, showThanks: true }));
-    alert(`Name: ${this.state.name} ---  Message:${this.state.message}`)
+    if (this.state.name === "" || this.state.message === "") {
+      alert("Please fill out all inputs!")
+    } else {
+      this.setState(({ showInput: false, showThanks: true }));
+    }
   };
-  messageSent = () => {
-
-  }
 
   render() {
     return (
@@ -60,12 +60,14 @@ class Contact extends Component {
                   </div>
                 </div>
               </div>
+
               <div className="ourcontact">
                 <h5>~ Or ~</h5>
                 <hr />
-                <h6>Ask your mom for our number</h6>
+                <h6>Dont contact us</h6>
                 <Emoji symbol="🤓" />
               </div>
+
             </div>
             : null
           }

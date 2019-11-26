@@ -14,7 +14,6 @@ class Navbar extends React.Component {
         M.Sidenav.init(this.sidenav);
     }
 
-
     // Render navbar
     render() {
         return (
@@ -23,38 +22,36 @@ class Navbar extends React.Component {
                     <header>
                         <nav id="mainNavbar" className="nav-wrapper grey darken-2" >
                             <div className="container">
-
                                 {/* Header logo */}
                                 <a href="/Home" ><img src={"./LogoWhite.png"} alt="logo" className="brand-logo center" id="logoNavbar" /></a>
-
                                 {/* SIDENAV */}
                                 <div className="hide-on-large-only">
                                     <SideNav trigger={<i className="material-icons">menu</i>} options={{ closeOnClick: true }} icon="view_headline">
-
                                         {/* Sidenav Head */}
                                         <SideNavItem userView user={{
                                             background: pic,
                                             image: './PlaceholderProfilePic.jpg',
                                             id: "test"
                                         }} />
-
                                         {/* Sidenav links */}
                                         <SideNavItem href="/Home" icon="home">
                                             Home
-                                    </SideNavItem>
+                                        </SideNavItem>
+
                                         <SideNavItem href="/Profile" icon="contacts">
                                             My Profile
-                                    </SideNavItem>
+                                        </SideNavItem>
+
                                         <SideNavItem href="/Contact" icon="email">
                                             Contact Us
-                                    </SideNavItem>
+                                        </SideNavItem>
+
                                         <SideNavItem href="/" icon="clear" onClick={() => app.auth().signOut()}>
                                             Sign out
-                                    </SideNavItem>
+                                        </SideNavItem>
 
-                                        {/* Bottom ad (OPTIONAL) */}
+                                        {/* Bottom ad */}
                                         {/* <img id="sidenavBottomAd" style={{ width: "300px", height: "150px" }} src="https://i.ytimg.com/vi/J3PxAxRTR78/maxresdefault.jpg" alt=""></img> */}
-
                                     </SideNav>
                                 </div>
 

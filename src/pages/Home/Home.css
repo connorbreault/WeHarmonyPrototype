@@ -57,6 +57,7 @@ main {
 #Search{
     background: #6d6d6d;
     font-family: 'Patrick Hand', cursive;
+    margin: 5% auto
 }
 #Search:hover{
     color: #26a69a;

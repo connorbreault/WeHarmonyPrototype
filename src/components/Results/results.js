@@ -31,11 +31,6 @@ class results extends React.Component {
 
 
     render() {
-        const opts = {
-            playerVars: { // https://developers.google.com/youtube/player_parameters
-                autoplay: 1
-            }
-        };
         return (
             <div>
                 {this.state.showResults ?
@@ -47,6 +42,7 @@ class results extends React.Component {
                             <div id="resultHeader">
                                 <h4 className="resultUsername">{this.props.items[this.state.index].username}</h4>
                                 <img className="resultProfilePic" src={this.props.items[this.state.index].profilePic} alt="" />
+                                <h4 className="resultUsername">{this.props.items[this.state.index].location}</h4>
                                 <h5 className="resultBio">{this.props.items[this.state.index].bio}</h5>
                             </div>
 
@@ -62,7 +58,6 @@ class results extends React.Component {
                                                 key={index}
                                                 className="youtubeVid"
                                                 videoId={video}
-                                                opts={opts}
                                                 onReady={this._onReady}
                                             />
                                         ))) :
