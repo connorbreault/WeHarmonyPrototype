@@ -17,8 +17,7 @@ class Profile extends Component {
   //   const { currentUser } = useContext(AuthContext);
 
   state = {
-    username: "",
-    password: ""
+    videoId: ""
   };
 
 
