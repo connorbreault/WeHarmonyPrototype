@@ -6,13 +6,6 @@ import Contact from "../pages/Contact/Contact";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
 
-// import { Modal, Button } from 'react-materialize';
-// const trigger = <Button>Open Modal</Button>;
-// <Modal header="Modal Header" trigger={trigger}>
-//   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-// </Modal>
-
-
 class Container extends Component {
 
   render() {
@@ -32,6 +25,5 @@ class Container extends Component {
     );
   }
 }
-// }
 
 export default Container;

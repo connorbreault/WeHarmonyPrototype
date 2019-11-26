@@ -154,23 +154,41 @@ const fauxDB = [
     ],
     id: 8
   },
+  {
+    firstname: "Connor",
+    lastname: "Breault",
+    email: "connor.breault@comcast.net",
+    username: "Chaboi",
+    password: "123456",
+    location: "Roseville",
+    instruments: "Guitar",
+    genres: "Metal",
+    latitude: 38.7902545,
+    longitude: -121.3770336,
+    profilePic: "./Chaboi.jpg",
+    bio: "Heres my super cool bio",
+    videos: [
+      "fSG2bsXLzN0",
+    ],
+    id: 9
+  },
 ]
 
 class Home extends React.Component {
 
-
   state = {
+    // Search Items
     selectedInstrument: "",
     selectedGenre: "",
+    // Dummy database
     fauxDB,
     fauxAPIreturn: [],
+    // Show + hide
     showDiv: false,
     noMatches: false,
     noMoreMatches: false,
     showResults: true
   };
-
-
 
   // RECIEVE KEYSTROKES
   handleInputChange = event => {
@@ -182,49 +200,54 @@ class Home extends React.Component {
 
   // INITIAL SEARCH
   handleFormSubmit = event => {
-    // Show divs
-    this.setState(({ showDiv: true, showResults: true }));
-    // SEARCH LOGIC
-    let matches = []
-    for (var i = 0; i < this.state.fauxDB.length; i++) {
-      // IF SELECTED INSTRUMENT AND GENRE
-      if (this.state.fauxDB[i].instruments === this.state.selectedInstrument && this.state.fauxDB[i].genres === this.state.selectedGenre) {
-        let latitudeDif = (Math.abs(this.state.fauxDB[i].latitude) - 38.5)
-        let longitudeDif = (Math.abs(this.state.fauxDB[i].longitude) - 121.4)
-        // IF WITHIN LAT+LONG DISTANCE
-        if (latitudeDif < 0.3 && longitudeDif < 0.3 && latitudeDif > -0.3 && longitudeDif > -0.3) {
-          let match = this.state.fauxDB[i]
-          matches.push(match)
+    // FORM CHECK
+    if (this.state.selectedGenre === "") {
+      alert("Please select what genre you'd like to search")
+    } if (this.state.selectedInstrument === "") {
+      alert("Please select what instrument you'd like to search")
+      // IF COMPLETE
+    } else {
+      // SHOW DIVS
+      this.setState(({ showDiv: true, showResults: true }));
+      // SEARCH LOGIC
+      let matches = []
+      // !!!! REPLACE fauxDB WITH OUR DB WHEN POSSIBLE !!!!
+      for (var i = 0; i < this.state.fauxDB.length; i++) {
+        // IF SELECTED INSTRUMENT AND GENRE
+        if (this.state.fauxDB[i].instruments === this.state.selectedInstrument && this.state.fauxDB[i].genres === this.state.selectedGenre) {
+
+          // !!!! SET THESE NUMBERS TO LOGGED IN USERS LATITUDE AND LONGITUDE WHEN POSSIBLE !!!!
+          let latitudeDif = (Math.abs(this.state.fauxDB[i].latitude) - 38.5)
+          let longitudeDif = (Math.abs(this.state.fauxDB[i].longitude) - 121.4)
+
+          // IF WITHIN LAT+LONG DISTANCE
+          if (latitudeDif < 0.3 && longitudeDif < 0.3 && latitudeDif > -0.3 && longitudeDif > -0.3) {
+            let match = this.state.fauxDB[i]
+            matches.push(match)
+          }
         }
       }
-    }
-    // SET RESULTS OR NO MATCH
-    if (matches.length <= 0) {
-      this.setState(({ noMatches: true }));
-      this.setState(({ showResults: false }));
-    } else {
-      this.setState({ fauxAPIreturn: matches }, () => console.log(`API: ${this.state.fauxAPIreturn[0].bio}`))
+      // SET RESULTS OR NO MATCH
+      if (matches.length <= 0) {
+        this.setState(({ noMatches: true, showResults: false }));
+      } else {
+        this.setState({ fauxAPIreturn: matches })
+      }
     }
   };
 
   // NEXT REQUEST
   handleNextRequest = event => {
+    // CHANGE OUT FAUXDB
     if (fauxDB[this.state.currentResultIndex] === undefined) {
-      this.setState(({ noMoreMatches: true }));
-      this.setState(({ showResults: false }));
+      this.setState(({ noMoreMatches: true, showResults: false }));
     }
   };
 
   // NEW SEARCH
   handleNewSearch = event => {
-    this.setState(({ showDiv: false }));
-    this.setState(({ noMatches: false }));
-    this.setState(({ noMoreMatches: false }));
-    this.setState(({ currentResultIndex: 0 }));
-    this.setState(({ fauxAPIreturn: [] }))
+    this.setState(({ showDiv: false, noMatches: false, currentResultIndex: 0, fauxAPIreturn: [], selectedInstrument: "", selectedGenre: "" }));
   }
-
-
 
   // Render Page
   render() {
@@ -274,6 +297,7 @@ class Home extends React.Component {
                 <button onClick={this.handleNewSearch} id="newSearch" className="btn">New Search</button>
               </div>
               : null}
+
           </div>
         </main>
         <Footer />

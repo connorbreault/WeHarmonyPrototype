@@ -63,7 +63,7 @@ class Contact extends Component {
               <div className="ourcontact">
                 <h5>~ Or ~</h5>
                 <hr />
-                <h6>Ask your mom for our number</h6>
+                <h6>Dont contact us</h6>
                 <Emoji symbol="🤓" />
               </div>
             </div>

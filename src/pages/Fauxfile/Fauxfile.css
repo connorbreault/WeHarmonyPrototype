@@ -112,7 +112,6 @@ main {
     width: 100%
 }
 
-
 @media only screen and ( min-width: 700px ) {
     .youtubeVid{
         height: 400px
@@ -134,13 +133,13 @@ main {
         padding: 25px;
         font-size: 35px
     }
-    .Profilebio{
-        font-size: 20px
-    }
     .Profilepic{
         width: 150px;
         height: 150px;
         border-radius: 75px
+    }
+    .Profilebio{
+        font-size: 20px
     }
     #messageButton{
         width: 30%

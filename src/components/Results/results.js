@@ -31,11 +31,6 @@ class results extends React.Component {
 
 
     render() {
-        const opts = {
-            playerVars: { // https://developers.google.com/youtube/player_parameters
-                autoplay: 1
-            }
-        };
         return (
             <div>
                 {this.state.showResults ?
@@ -63,7 +58,6 @@ class results extends React.Component {
                                                 key={index}
                                                 className="youtubeVid"
                                                 videoId={video}
-                                                opts={opts}
                                                 onReady={this._onReady}
                                             />
                                         ))) :
