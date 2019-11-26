@@ -50,7 +50,7 @@ class Profile extends Component {
               </Col>
               <Col s={8} id="userInfoText">
                 <p className="Profilename">Name</p>
-                <p className="Profilebio"> Super sick bio dude </p>
+                <p className="Profilebio"> Bio </p>
               </Col>
             </Row>
             <div>
