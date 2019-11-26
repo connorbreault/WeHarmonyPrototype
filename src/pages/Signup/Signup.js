@@ -55,7 +55,7 @@ class Signup extends React.Component {
             alert("Please fill out all inputs!")
         } else {
             // Geocode API 
-            Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=AIzaSyBhef7w8QDnJeG0zyuIT_An9llVYqOXDv4`)
+            Axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${this.state.location}&key=${process.env.REACT_APP_GOOG_KEY}`)
                 .then(res => {
                     this.setState(({ showDiv: true }));
                     // Latitude/Longitude
