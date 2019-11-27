@@ -47,10 +47,6 @@ class results extends React.Component {
                                 <h5 className="resultBio">{this.props.items[this.state.index].bio}</h5>
                             </div>
 
-                            <div>
-                                <button onClick={this.handleViewProfile} id="viewCurrentResultProfile" className="btn">View Profile</button>
-                            </div>
-
                             <div className="resultVideos">
                                 {
                                     this.props.items[this.state.index] ?
