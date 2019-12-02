@@ -5,6 +5,8 @@
 
 Musicians rejoice, with this app you will no longer struggle to find a perfect band mate!  We harmony is a full stack social media application built by Connor Breault and Rebecca Hernandez
 
+## To view this website live, [click here!](https://weharmonyprototype.herokuapp.com/)...
+
 # With this site, we can...
 
   - Search a database of local musicians by the instrument they play and the genre they would like to play
